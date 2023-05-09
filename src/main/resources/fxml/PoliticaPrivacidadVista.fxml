@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextArea editable="false" layoutX="49.0" layoutY="56.0" prefHeight="636.0" prefWidth="643.0" text="Política de privacidad de Academix&#10;&#10;En Academix, la privacidad y la protección de los datos personales de nuestros usuarios es una de nuestras principales preocupaciones. En este sentido, a continuación, detallamos nuestra política de privacidad para que usted tenga conocimiento de cómo recopilamos, utilizamos, compartimos y protegemos su información personal.&#10;&#10;1. Información personal que recopilamos.&#10;Recopilamos información personal de diferentes maneras, como cuando se registra en nuestra plataforma o cuando nos proporciona información adicional a través de nuestra plataforma. La información personal que recopilamos puede incluir su nombre, dirección de correo electrónico, dirección postal, número de teléfono y otra información relevante para proporcionar nuestros servicios.&#10;&#10;2. Uso de la información personal.&#10;Utilizamos su información personal para proporcionar y mejorar nuestros servicios, para administrar su cuenta, para responder a sus consultas y para enviarle información relevante sobre nuestros servicios. También podemos utilizar su información personal para fines comerciales y publicitarios, como para enviarle información sobre productos y servicios relacionados con los que pueda estar interesado.&#10;&#10;3. Compartir información personal.&#10;No vendemos, alquilamos ni compartimos su información personal con terceros, excepto en los casos en que sea necesario para proporcionar nuestros servicios o en cumplimiento de una obligación legal.&#10;&#10;4. Protección de la información personal.&#10;Tomamos medidas razonables y apropiadas para proteger su información personal contra el acceso no autorizado, la alteración, la divulgación o la destrucción. Esto incluye el uso de tecnologías de seguridad y prácticas de privacidad adecuadas para proteger su información personal.&#10;&#10;5. Política de cookies.&#10;Academix utiliza cookies para mejorar su experiencia de usuario y personalizar su experiencia en nuestra plataforma. Las cookies también nos ayudan a comprender cómo utiliza nuestra plataforma y cómo podemos mejorarla.&#10;&#10;6. Cambios en la política de privacidad.&#10;Podemos actualizar nuestra política de privacidad en cualquier momento y sin previo aviso. Le recomendamos que revise regularmente esta política para mantenerse informado sobre cómo protegemos su información personal.&#10;&#10;Si tiene alguna pregunta o inquietud sobre nuestra política de privacidad, no dude en ponerse en contacto con nosotros." wrapText="true" />
+      <ImageView fitHeight="42.0" fitWidth="56.0" layoutX="639.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagenes/ACADEMIX_2.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

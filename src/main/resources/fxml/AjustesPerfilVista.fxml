@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="681.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="114.0" fitWidth="200.0" layoutX="6.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/user.png" />
+               </image></ImageView>
+            <Button layoutX="68.0" layoutY="195.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="64.0" text="Edit" />
+            <VBox layoutX="45.0" layoutY="268.0" prefHeight="86.0" prefWidth="139.0">
+               <children>
+                  <Label prefHeight="25.0" prefWidth="45.0" text="Inicio" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="25.0" prefWidth="45.0" text="Perfil" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="20.0" top="15.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label text="Notificaciones" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="20.0" top="15.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label text="Contraseña" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="20.0" top="15.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <FontAwesomeIconView fill="WHITE" glyphName="USER" layoutX="33.0" layoutY="326.0" size="20" />
+            <FontAwesomeIconView fill="WHITE" glyphName="BELL" layoutX="30.0" layoutY="365.0" size="20" />
+            <FontAwesomeIconView fill="WHITE" glyphName="KEY" layoutX="31.0" layoutY="403.0" size="20" />
+            <FontAwesomeIconView fill="WHITE" glyphName="DASHBOARD" layoutX="31.0" layoutY="288.0" size="20" />
+            <ImageView fitHeight="108.0" fitWidth="138.0" layoutX="46.0" layoutY="435.0" opacity="0.75" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/ACADEMIX_2.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </left>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="24.0" layoutY="28.0" prefHeight="27.0" prefWidth="140.0" text="Ajustes de perfil" textFill="#0598ff">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="33.0" layoutY="286.0" text="Información de contacto" textFill="#0598ff" />
+            <Button layoutX="183.0" layoutY="465.0" mnemonicParsing="false" text="Guardar cambios" />
+            <VBox layoutX="38.0" layoutY="122.0" prefHeight="124.0" prefWidth="158.0">
+               <children>
+                  <Label text="Nombre" textFill="#0598ff">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Primer apellido" textFill="#0598ff">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Segundo apellido" textFill="#0598ff">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefWidth="124.0" text="Fecha de nacimiento" textFill="#0598ff">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox layoutX="38.0" layoutY="326.0" prefHeight="94.0" prefWidth="128.0">
+               <children>
+                  <Label text="Número" textFill="#0598ff">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Email" textFill="#0598ff">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="18.0" prefWidth="67.0" text="Dirección" textFill="#0598ff">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+            <Label layoutX="33.0" layoutY="83.0" text="Detalles de usuario" textFill="#0598ff">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="233.0" layoutY="116.0" promptText="Nombre de usuario" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField layoutX="233.0" layoutY="150.0" promptText="Apellido" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField layoutX="234.0" layoutY="188.0" promptText="Apellido" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField layoutX="233.0" layoutY="227.0" promptText="Fecha de nacimiento" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField layoutX="233.0" layoutY="315.0" promptText="Número" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField layoutX="233.0" layoutY="393.0" promptText="Dirección" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField layoutX="233.0" layoutY="352.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+         </children></Pane>
+   </center>
+</BorderPane>
