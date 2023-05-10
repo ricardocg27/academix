@@ -13,7 +13,7 @@ import jakarta.persistence.Persistence;
 public class AsignaturaDaoImpl implements AsignaturaDao {
 
 	private static final String PERSISTENCE = "persistence";
-	private static AsignaturaDaoImpl instance;
+	private static final AsignaturaDaoImpl instance;
 
 	static {
 		instance = new AsignaturaDaoImpl();

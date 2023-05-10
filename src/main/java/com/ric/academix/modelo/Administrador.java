@@ -7,17 +7,17 @@ package com.ric.academix.modelo;
 
 import com.ric.academix.modelo.TipoUsuario;
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import jakarta.persistence.Basic;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.NamedQueries;
+import jakarta.persistence.NamedQuery;
+import jakarta.persistence.Table;
 
 /**
  *
@@ -50,10 +50,20 @@ public class Administrador implements Serializable {
     private String email;
     @JoinColumn(name = "tipo_usuario", referencedColumnName = "codigo")
     @ManyToOne
-    private TipoUsuario tipoUsuario;
+    private int tipoUsuario;
 
     public Administrador() {
     }
+
+    public Administrador(String nombre, String apellido, String contrasegna, String email, int tipoUsuario) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.contrasegna = contrasegna;
+        this.email = email;
+        this.tipoUsuario = tipoUsuario;
+    }
+    
+    
 
     public Administrador(Integer id) {
         this.id = id;
@@ -99,11 +109,11 @@ public class Administrador implements Serializable {
         this.email = email;
     }
 
-    public TipoUsuario getTipoUsuario() {
+    public int getTipoUsuario() {
         return tipoUsuario;
     }
 
-    public void setTipoUsuario(TipoUsuario tipoUsuario) {
+    public void setTipoUsuario(int tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
 
