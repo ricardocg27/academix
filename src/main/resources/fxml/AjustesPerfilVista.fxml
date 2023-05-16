@@ -10,9 +10,10 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="681.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="681.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ric.academix.controlador.AjustesPerfilController">
    <left>
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
          <children>
@@ -20,7 +21,7 @@
                <image>
                   <Image url="@../imagenes/user.png" />
                </image></ImageView>
-            <Button layoutX="68.0" layoutY="195.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="64.0" text="Edit" />
+            <Button layoutX="68.0" layoutY="188.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="64.0" text="Edit" />
             <VBox layoutX="45.0" layoutY="268.0" prefHeight="86.0" prefWidth="139.0">
                <children>
                   <Label prefHeight="25.0" prefWidth="45.0" text="Inicio" textFill="WHITE">
@@ -66,6 +67,7 @@
                   <Image url="@../imagenes/ACADEMIX_2.png" />
                </image>
             </ImageView>
+            <Line endX="111.0" layoutX="64.0" layoutY="249.0" startX="-39.0" stroke="WHITE" />
          </children>
       </Pane>
    </left>
@@ -78,7 +80,7 @@
                </font>
             </Label>
             <Label layoutX="33.0" layoutY="286.0" text="Información de contacto" textFill="#0598ff" />
-            <Button layoutX="183.0" layoutY="465.0" mnemonicParsing="false" text="Guardar cambios" />
+            <Button id="btnGuardarAjustesPerfil" layoutX="183.0" layoutY="465.0" mnemonicParsing="false" text="Guardar cambios" />
             <VBox layoutX="38.0" layoutY="122.0" prefHeight="124.0" prefWidth="158.0">
                <children>
                   <Label text="Nombre" textFill="#0598ff">
@@ -127,13 +129,13 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="233.0" layoutY="116.0" promptText="Nombre de usuario" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-            <TextField layoutX="233.0" layoutY="150.0" promptText="Apellido" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-            <TextField layoutX="234.0" layoutY="188.0" promptText="Apellido" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-            <TextField layoutX="233.0" layoutY="227.0" promptText="Fecha de nacimiento" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-            <TextField layoutX="233.0" layoutY="315.0" promptText="Número" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-            <TextField layoutX="233.0" layoutY="393.0" promptText="Dirección" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-            <TextField layoutX="233.0" layoutY="352.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField id="txtNombre" fx:id="txtNombre" layoutX="233.0" layoutY="116.0" promptText="Nombre de usuario" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField id="txtApellido1" fx:id="txtApellido1" layoutX="233.0" layoutY="150.0" promptText="Apellido" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField id="txtApellido2" fx:id="txtApellido2" layoutX="234.0" layoutY="188.0" promptText="Apellido" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField id="txtFechaNacimiento" fx:id="txtFechaNacimiento" layoutX="233.0" layoutY="227.0" promptText="Fecha de nacimiento" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField id="txtNumero" fx:id="txtNumero" layoutX="233.0" layoutY="315.0" promptText="Número" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField id="txtDireccion" fx:id="txtDireccion" layoutX="233.0" layoutY="393.0" promptText="Dirección" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField id="txtEmail" fx:id="txtEmail" layoutX="233.0" layoutY="352.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
          </children></Pane>
    </center>
 </BorderPane>

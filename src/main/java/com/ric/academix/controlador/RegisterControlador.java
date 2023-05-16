@@ -6,9 +6,15 @@
 package com.ric.academix.controlador;
 
 import com.ric.academix.dao.AdministradorDao;
+import com.ric.academix.dao.AlumnoDao;
+import com.ric.academix.dao.ProfesorDao;
 import com.ric.academix.daoImpl.AdministradorDaoImpl;
+import com.ric.academix.daoImpl.AlumnoDaoImpl;
+import com.ric.academix.daoImpl.ProfesorDaoImpl;
 import com.ric.academix.modelo.Administrador;
+import com.ric.academix.modelo.Alumno;
 import com.ric.academix.modelo.CodigoUsuarios;
+import com.ric.academix.modelo.Profesor;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.io.IOException;
 import java.net.URL;
@@ -49,7 +55,17 @@ public class RegisterControlador implements Initializable {
     @FXML
     private TextField txtNombre;
     @FXML
+    private TextField txtPrimerApellido;
+    @FXML
+    private TextField txtSegundoApellido;
+    @FXML
+    private TextField txtEmail;
+    @FXML
     private PasswordField txtContra;
+    @FXML
+    private ComboBox<String> cmbCategoria;
+    @FXML
+    private TextField txtCodigo;
     @FXML
     private Button btnRegister;
     @FXML
@@ -60,22 +76,14 @@ public class RegisterControlador implements Initializable {
     private Pane pneExit;
     @FXML
     private FontAwesomeIconView icnExit;
-    @FXML
-    private TextField txtApellido;
-    @FXML
-    private TextField txtEmail;
-    @FXML
-    private ComboBox<String> cmbCategoria;
-    @FXML
-    private TextField txtCodigo;
-    
+
     private double xOffset = 0;
     private double yOffset = 0;
     private Stage stage;
 
     private ValidationSupport validador;
-    
-    private String nombre, apellido, contrasegna, email;
+
+    private String nombre, apellido1, apellido2, contrasegna, email;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -134,7 +142,7 @@ public class RegisterControlador implements Initializable {
                     alert.setTitle("Error");
                     alert.setHeaderText("Código no válido");
                     alert.setContentText("Por favor, introduzca un código de registro de usuario válido. "
-                            + "Para más información, contacte con el administrador de su organización");
+                            + "Para más información, contacte con el administrador de su organización.");
                     alert.showAndWait();
                 }
 
@@ -153,7 +161,8 @@ public class RegisterControlador implements Initializable {
         boolean camposRellenos;
 
         validador.registerValidator(txtNombre, Validator.createEmptyValidator("Campo requerido"));
-        validador.registerValidator(txtApellido, Validator.createEmptyValidator("Campo requerido"));
+        validador.registerValidator(txtPrimerApellido, Validator.createEmptyValidator("Campo requerido"));
+         validador.registerValidator(txtSegundoApellido, Validator.createEmptyValidator("Campo requerido"));
         validador.registerValidator(txtContra, Validator.createEmptyValidator("Campo requerido"));
         validador.registerValidator(txtEmail, Validator.createEmptyValidator("Campo requerido"));
         validador.registerValidator(txtCodigo, Validator.createEmptyValidator("Campo requerido"));
@@ -199,17 +208,17 @@ public class RegisterControlador implements Initializable {
 
         switch (categoriaUsuario) {
             case "Administrador":
-                if (txtCodigo.getText() == codigo.getCodigoAdmin()) {
+                if (txtCodigo.getText().equals(codigo.getCodigoValidacionAdmin())) {
                     valido = true;
                 }
                 break;
             case "Profesor":
-                if (txtCodigo.getText() == codigo.getCodigoProfesor()) {
+                if (txtCodigo.getText().equals(codigo.getCodigoValidacionProfesor())) {
                     valido = true;
                 }
                 break;
             case "Alumno":
-                if (txtCodigo.getText() == codigo.getCodigoAlumno()) {
+                if (txtCodigo.getText().equals(codigo.getCodigoValidacionAlumno())) {
                     valido = true;
                 }
                 break;
@@ -225,14 +234,18 @@ public class RegisterControlador implements Initializable {
         switch (categoriaUsuario) {
             case "Administrador":
                 Administrador admin = crearAdministrador();
-                AdministradorDao dao = new AdministradorDaoImpl();
-                dao.insertar(admin);
+                AdministradorDao adminDao = new AdministradorDaoImpl();
+                adminDao.insertar(admin);
                 break;
             case "Profesor":
-
+                Profesor prof = crearProfesor();
+                ProfesorDao profesorDao = new ProfesorDaoImpl();
+                profesorDao.insertar(prof);
                 break;
             case "Alumno":
-
+                Alumno alumno = crearAlumno();
+                AlumnoDao alumnoDao = new AlumnoDaoImpl();
+                alumnoDao.insertar(alumno);
                 break;
         }
     }
@@ -242,13 +255,46 @@ public class RegisterControlador implements Initializable {
         Administrador admin = null;
 
         nombre = txtNombre.getText();
-        apellido = txtApellido.getText();
+        apellido1 = txtPrimerApellido.getText();
+        apellido2 = txtSegundoApellido.getText();
         contrasegna = txtContra.getText();
         email = txtEmail.getText();
-        
-        admin = new Administrador(nombre, apellido, contrasegna, email, codigo.getCodigoTipoAdmin());
-        
+
+        admin = new Administrador(nombre, apellido1, apellido2, contrasegna, email, codigo.getCodigoTipoAdmin());
+
         return admin;
+    }
+
+    private Profesor crearProfesor() {
+
+        CodigoUsuarios codigo = new CodigoUsuarios();
+        Profesor profesor = null;
+
+        nombre = txtNombre.getText();
+        apellido1 = txtPrimerApellido.getText();
+        apellido2 = txtSegundoApellido.getText();
+        contrasegna = txtContra.getText();
+        email = txtEmail.getText();
+
+        profesor = new Profesor(nombre, apellido1, apellido2, contrasegna, email, codigo.getCodigoTipoProfesor());
+
+        return profesor;
+    }
+
+    private Alumno crearAlumno() {
+
+        CodigoUsuarios codigo = new CodigoUsuarios();
+        Alumno alumno = null;
+
+        nombre = txtNombre.getText();
+       apellido1 = txtPrimerApellido.getText();
+        apellido2 = txtSegundoApellido.getText();
+        contrasegna = txtContra.getText();
+        email = txtEmail.getText();
+
+        alumno = new Alumno(nombre, apellido1, apellido2, contrasegna, email, codigo.getCodigoTipoAlumno());
+
+        return alumno;
     }
 
 }

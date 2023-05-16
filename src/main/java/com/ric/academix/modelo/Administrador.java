@@ -25,13 +25,6 @@ import jakarta.persistence.Table;
  */
 @Entity
 @Table(name = "administrador")
-@NamedQueries({
-    @NamedQuery(name = "Administrador.findAll", query = "SELECT a FROM Administrador a"),
-    @NamedQuery(name = "Administrador.findById", query = "SELECT a FROM Administrador a WHERE a.id = :id"),
-    @NamedQuery(name = "Administrador.findByNombre", query = "SELECT a FROM Administrador a WHERE a.nombre = :nombre"),
-    @NamedQuery(name = "Administrador.findByApellido", query = "SELECT a FROM Administrador a WHERE a.apellido = :apellido"),
-    @NamedQuery(name = "Administrador.findByContrasegna", query = "SELECT a FROM Administrador a WHERE a.contrasegna = :contrasegna"),
-    @NamedQuery(name = "Administrador.findByEmail", query = "SELECT a FROM Administrador a WHERE a.email = :email")})
 public class Administrador implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -42,28 +35,32 @@ public class Administrador implements Serializable {
     private Integer id;
     @Column(name = "nombre")
     private String nombre;
-    @Column(name = "apellido")
-    private String apellido;
+    @Column(name = "primer_apellido")
+    private String primerApellido;
+    @Column(name = "segundo_apellido")
+    private String segundoApellido;
     @Column(name = "contrasegna")
     private String contrasegna;
     @Column(name = "email")
     private String email;
-    @JoinColumn(name = "tipo_usuario", referencedColumnName = "codigo")
+    @JoinColumn(name = "tipo_usuario", insertable = false, updatable = false, referencedColumnName = "codigo")
     @ManyToOne
-    private int tipoUsuario;
+    private TipoUsuario tipoUsuario;
+
+    @Column(name = "tipo_usuario")
+    private int codigoTipoUsuario;
 
     public Administrador() {
     }
 
-    public Administrador(String nombre, String apellido, String contrasegna, String email, int tipoUsuario) {
+    public Administrador(String nombre, String primerApellido, String segundoApellido, String contrasegna, String email, int codigoTipoUsuario) {
         this.nombre = nombre;
-        this.apellido = apellido;
+        this.primerApellido = primerApellido;
+        this.segundoApellido = segundoApellido;
         this.contrasegna = contrasegna;
         this.email = email;
-        this.tipoUsuario = tipoUsuario;
+        this.codigoTipoUsuario = codigoTipoUsuario;
     }
-    
-    
 
     public Administrador(Integer id) {
         this.id = id;
@@ -85,12 +82,20 @@ public class Administrador implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getPrimerApellido() {
+        return primerApellido;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setPrimerApellido(String primerApellido) {
+        this.primerApellido = primerApellido;
+    }
+
+    public String getSegundoApellido() {
+        return segundoApellido;
+    }
+
+    public void setSegundoApellido(String segundoApellido) {
+        this.segundoApellido = segundoApellido;
     }
 
     public String getContrasegna() {
@@ -109,12 +114,20 @@ public class Administrador implements Serializable {
         this.email = email;
     }
 
-    public int getTipoUsuario() {
+    public TipoUsuario getTipoUsuario() {
         return tipoUsuario;
     }
 
-    public void setTipoUsuario(int tipoUsuario) {
+    public void setTipoUsuario(TipoUsuario tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
+    }
+
+    public int getCodigoTipoUsuario() {
+        return codigoTipoUsuario;
+    }
+
+    public void setCodigoTipoUsuario(int codigoTipoUsuario) {
+        this.codigoTipoUsuario = codigoTipoUsuario;
     }
 
     @Override
@@ -139,7 +152,17 @@ public class Administrador implements Serializable {
 
     @Override
     public String toString() {
-        return "com.ric.academix.modelo.Administrador[ id=" + id + " ]";
+        return "Administrador{" + "id=" + id + 
+                ", nombre=" + nombre + 
+                ", primerApellido=" + primerApellido + 
+                ", segundoApellido=" + segundoApellido + 
+                ", contrasegna=" + contrasegna + 
+                ", email=" + email + 
+                ", tipoUsuario=" + tipoUsuario + 
+                ", codigoTipoUsuario=" + codigoTipoUsuario + '}';
     }
+
+    
+
     
 }

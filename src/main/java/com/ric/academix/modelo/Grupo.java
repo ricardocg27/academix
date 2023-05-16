@@ -29,11 +29,6 @@ import jakarta.persistence.Table;
  */
 @Entity
 @Table(name = "grupo")
-@NamedQueries({
-    @NamedQuery(name = "Grupo_1.findAll", query = "SELECT g FROM Grupo_1 g"),
-    @NamedQuery(name = "Grupo_1.findById", query = "SELECT g FROM Grupo_1 g WHERE g.id = :id"),
-    @NamedQuery(name = "Grupo_1.findByCurso", query = "SELECT g FROM Grupo_1 g WHERE g.curso = :curso"),
-    @NamedQuery(name = "Grupo_1.findByLetra", query = "SELECT g FROM Grupo_1 g WHERE g.letra = :letra")})
 public class Grupo implements Serializable {
 
     private static final long serialVersionUID = 1L;

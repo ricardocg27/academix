@@ -16,6 +16,7 @@ public interface AdministradorDao {
     
         List<Administrador> consultarTodos();
 	Administrador consultar(int id);
+        Administrador consultarPorEmailYContrasena(String email, String contrasena);
 	void insertar(Administrador administrador);
 	void actualizar(int id);
 	boolean eliminar(int id);

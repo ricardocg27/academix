@@ -29,13 +29,6 @@ import jakarta.persistence.Table;
  */
 @Entity
 @Table(name = "profesor")
-@NamedQueries({
-    @NamedQuery(name = "Profesor.findAll", query = "SELECT p FROM Profesor p"),
-    @NamedQuery(name = "Profesor.findById", query = "SELECT p FROM Profesor p WHERE p.id = :id"),
-    @NamedQuery(name = "Profesor.findByNombre", query = "SELECT p FROM Profesor p WHERE p.nombre = :nombre"),
-    @NamedQuery(name = "Profesor.findByApellido", query = "SELECT p FROM Profesor p WHERE p.apellido = :apellido"),
-    @NamedQuery(name = "Profesor.findByContrasegna", query = "SELECT p FROM Profesor p WHERE p.contrasegna = :contrasegna"),
-    @NamedQuery(name = "Profesor.findByEmail", query = "SELECT p FROM Profesor p WHERE p.email = :email")})
 public class Profesor implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -46,19 +39,32 @@ public class Profesor implements Serializable {
     private Integer id;
     @Column(name = "nombre")
     private String nombre;
-    @Column(name = "apellido")
-    private String apellido;
+    @Column(name = "primer_apellido")
+    private String primerApellido;
+    @Column(name = "segundo_apellido")
+    private String segundoApellido;
     @Column(name = "contrasegna")
     private String contrasegna;
     @Column(name = "email")
     private String email;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tutorId")
     private Collection<Grupo> grupoCollection;
-    @JoinColumn(name = "tipo_usuario", referencedColumnName = "codigo")
+    @JoinColumn(name = "tipo_usuario", insertable = false, updatable = false, referencedColumnName = "codigo")
     @ManyToOne
     private TipoUsuario tipoUsuario;
+    @Column(name = "tipo_usuario")
+    private int codigoTipoUsuario;
 
     public Profesor() {
+    }
+
+    public Profesor(String nombre, String primerApellido, String segundoApellido, String contrasegna, String email, int codigoTipoUsuario) {
+        this.nombre = nombre;
+        this.primerApellido = primerApellido;
+        this.segundoApellido = segundoApellido;
+        this.contrasegna = contrasegna;
+        this.email = email;
+        this.codigoTipoUsuario = codigoTipoUsuario;
     }
 
     public Profesor(Integer id) {
@@ -81,12 +87,20 @@ public class Profesor implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getPrimerApellido() {
+        return primerApellido;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setPrimerApellido(String primerApellido) {
+        this.primerApellido = primerApellido;
+    }
+
+    public String getSegundoApellido() {
+        return segundoApellido;
+    }
+
+    public void setSegundoApellido(String segundoApellido) {
+        this.segundoApellido = segundoApellido;
     }
 
     public String getContrasegna() {
@@ -121,6 +135,14 @@ public class Profesor implements Serializable {
         this.tipoUsuario = tipoUsuario;
     }
 
+    public int getCodigoTipoUsuario() {
+        return codigoTipoUsuario;
+    }
+
+    public void setCodigoTipoUsuario(int codigoTipoUsuario) {
+        this.codigoTipoUsuario = codigoTipoUsuario;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -145,5 +167,5 @@ public class Profesor implements Serializable {
     public String toString() {
         return "com.ric.academix.modelo.Profesor[ id=" + id + " ]";
     }
-    
+
 }

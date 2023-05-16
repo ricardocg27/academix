@@ -5,7 +5,6 @@
  */
 package com.ric.academix.controlador;
 
-import com.ric.academix.modelo.Profesor;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
@@ -15,18 +14,14 @@ import javafx.fxml.Initializable;
  *
  * @author ricar
  */
-public class PanelGeneralProfesorController implements Initializable {
+public class GestionAlumnosController implements Initializable {
 
-    private Profesor profesor;
-    
-    
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    
-    public void setUsuario(Profesor object){
-        this.profesor = object;
-    }
     
 }

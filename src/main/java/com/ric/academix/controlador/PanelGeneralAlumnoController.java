@@ -5,6 +5,7 @@
  */
 package com.ric.academix.controlador;
 
+import com.ric.academix.modelo.Alumno;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
@@ -16,12 +17,18 @@ import javafx.fxml.Initializable;
  */
 public class PanelGeneralAlumnoController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+    
+    private Alumno alumno;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    void setUsuario(Alumno alumno) {
+        this.alumno = alumno;
+    }
+
+    
     
 }

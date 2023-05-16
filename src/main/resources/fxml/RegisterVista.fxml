@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane id="borderPane" fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#moverVentana" onMousePressed="#registrarPosicion" prefHeight="474.0" prefWidth="618.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ric.academix.controlador.RegisterControlador">
+<BorderPane id="borderPane" fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#moverVentana" onMousePressed="#registrarPosicion" prefHeight="492.0" prefWidth="648.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ric.academix.controlador.RegisterControlador">
    <left>
       <AnchorPane prefHeight="474.0" prefWidth="289.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
          <children>
@@ -26,29 +26,30 @@
       </AnchorPane>
    </left>
    <center>
-      <AnchorPane prefHeight="474.0" prefWidth="330.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="517.0" prefWidth="376.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField id="txtNombre" fx:id="txtNombre" layoutX="67.0" layoutY="163.0" prefHeight="27.0" prefWidth="93.0" promptText="User Name" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-            <PasswordField id="txtContra" fx:id="txtContra" layoutX="70.0" layoutY="274.0" prefHeight="27.0" prefWidth="228.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-            <Button id="btnRegister" fx:id="btnRegister" layoutX="136.0" layoutY="398.0" mnemonicParsing="false" onAction="#registrar" prefHeight="33.0" prefWidth="96.0" text="Register" />
-            <FontAwesomeIconView fill="#0598ff" glyphName="USERS" layoutX="157.0" layoutY="93.0" size="35" wrappingWidth="44.25" />
-            <Text fill="#0598ff" layoutX="116.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Register">
+            <TextField id="txtNombre" fx:id="txtNombre" layoutX="67.0" layoutY="166.0" prefHeight="27.0" prefWidth="231.0" promptText="User Name" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <PasswordField id="txtContra" fx:id="txtContra" layoutX="70.0" layoutY="306.0" prefHeight="27.0" prefWidth="228.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <Button id="btnRegister" fx:id="btnRegister" layoutX="136.0" layoutY="427.0" mnemonicParsing="false" onAction="#registrar" prefHeight="33.0" prefWidth="96.0" text="Register" />
+            <FontAwesomeIconView fill="#0598ff" glyphName="USERS" layoutX="157.0" layoutY="96.0" size="35" wrappingWidth="44.25" />
+            <Text fill="#0598ff" layoutX="116.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Register">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <FontAwesomeIconView id="icnUser" fx:id="icnUser" fill="#0589ff" glyphName="USER" layoutX="36.0" layoutY="184.0" size="20" wrappingWidth="15.5" />
-            <FontAwesomeIconView id="icnKey" fx:id="icnKey" fill="#0589ff" glyphName="KEY" layoutX="34.0" layoutY="294.0" selectionFill="#0589ff" size="20" text="" wrappingWidth="15.5" />
+            <FontAwesomeIconView id="icnUser" fx:id="icnUser" fill="#0589ff" glyphName="USER" layoutX="36.0" layoutY="187.0" size="20" wrappingWidth="15.5" />
+            <FontAwesomeIconView id="icnKey" fx:id="icnKey" fill="#0589ff" glyphName="KEY" layoutX="34.0" layoutY="326.0" selectionFill="#0589ff" size="20" text="" wrappingWidth="15.5" />
             <Pane fx:id="pneExit" layoutX="274.0" layoutY="23.0" prefHeight="16.0" prefWidth="21.0">
                <children>
                   <FontAwesomeIconView id="icnExit" fx:id="icnExit" fill="#0589ff" glyphName="CLOSE" layoutX="4.0" layoutY="13.0" onMouseClicked="#exit" selectionFill="#751414" size="16" text="" wrappingWidth="12.571428298950195" />
                </children>
             </Pane>
-            <TextField id="txtApellido" fx:id="txtApellido" layoutX="198.0" layoutY="163.0" prefHeight="27.0" prefWidth="99.0" promptText="User Surname" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-            <FontAwesomeIconView fill="#0598ff" glyphName="GOOGLE" layoutX="34.0" layoutY="241.0" size="20" />
-            <ComboBox id="cmbCategoria" fx:id="cmbCategoria" layoutX="70.0" layoutY="334.0" prefHeight="29.0" prefWidth="106.0" promptText="Select" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
-            <TextField id="txtCodigo" fx:id="txtCodigo" layoutX="207.0" layoutY="335.0" prefHeight="27.0" prefWidth="91.0" promptText="Enter code" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-            <TextField id="txtEmail" fx:id="txtEmail" layoutX="67.0" layoutY="221.0" prefHeight="27.0" prefWidth="228.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField id="txtPrimerApellido" fx:id="txtPrimerApellido" layoutX="67.0" layoutY="212.0" prefHeight="27.0" prefWidth="99.0" promptText="Surname" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField id="txtSegundoApellido" fx:id="txtSegundoApellido" layoutX="198.0" layoutY="212.0" prefHeight="27.0" prefWidth="99.0" promptText=" Surname" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <FontAwesomeIconView fill="#0598ff" glyphName="GOOGLE" layoutX="34.0" layoutY="273.0" size="20" />
+            <ComboBox id="cmbCategoria" fx:id="cmbCategoria" layoutX="70.0" layoutY="365.0" prefHeight="29.0" prefWidth="106.0" promptText="Select" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
+            <TextField id="txtCodigo" fx:id="txtCodigo" layoutX="202.0" layoutY="367.0" prefHeight="27.0" prefWidth="91.0" promptText="Enter code" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField id="txtEmail" fx:id="txtEmail" layoutX="67.0" layoutY="252.0" prefHeight="27.0" prefWidth="228.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
          </children>
       </AnchorPane>
    </center>

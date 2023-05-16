@@ -109,9 +109,9 @@ public class AsignaturaControlador {
 							if (listaAsignaturasProfesor.size() > 0) {
 								profesorDao = ProfesorDaoImpl.getInstance();
 								profesor = profesorDao.consultarProfesorAsignatura(codigo);
-								System.err.println("Error al eliminar.\n"
-										+ "Se ha encontrado a " + profesor.getNombre() + 
-									" " + profesor.getApellido() + " como profesor de la asignatura" );
+//								System.err.println("Error al eliminar.\n"
+//										+ "Se ha encontrado a " + profesor.getNombre() + 
+//									" " + profesor.getApellido() + " como profesor de la asignatura" );
 								// Preguntar si borrar al profesor como profesor de la asignatura
 							}
 						}

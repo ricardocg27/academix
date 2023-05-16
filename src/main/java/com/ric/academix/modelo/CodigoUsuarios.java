@@ -11,35 +11,35 @@ package com.ric.academix.modelo;
  */
 public class CodigoUsuarios {
 
-    private final String codigoAdmin = "Ad5555*";
-    private final String codigoProfesor = "Prof555*";
-    private final String codigoAlumno = "Alum5555*";
+    private final String codigoValidacionAdmin = "Ad5555*";
+    private final String codigoValidacionProfesor = "Prof555*";
+    private final String codigoValidacionAlumno = "Alum5555*";
     
-    private static final int codigoTipoAdmin = 1, codigoTipoProfesor = 2, codigoTipoAlumno = 3;
+    private static final int CODIGO_TIPO_ADMIN = 1, CODIGO_TIPO_PROFESOR = 2, CODIGO_TIPO_ALUMNO = 3;
     
 
-    public String getCodigoAdmin() {
-        return codigoAdmin;
+    public String getCodigoValidacionAdmin() {
+        return codigoValidacionAdmin;
     }
 
-    public String getCodigoProfesor() {
-        return codigoProfesor;
+    public String getCodigoValidacionProfesor() {
+        return codigoValidacionProfesor;
     }
 
-    public String getCodigoAlumno() {
-        return codigoAlumno;
+    public String getCodigoValidacionAlumno() {
+        return codigoValidacionAlumno;
     }
 
     public int getCodigoTipoAdmin() {
-        return codigoTipoAdmin;
+        return CODIGO_TIPO_ADMIN;
     }
 
     public int getCodigoTipoProfesor() {
-        return codigoTipoProfesor;
+        return CODIGO_TIPO_PROFESOR;
     }
 
     public int getCodigoTipoAlumno() {
-        return codigoTipoAlumno;
+        return CODIGO_TIPO_ALUMNO;
     }
     
     

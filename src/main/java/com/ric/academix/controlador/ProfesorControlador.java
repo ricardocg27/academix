@@ -42,7 +42,7 @@ public class ProfesorControlador {
 		Profesor profesor = new Profesor();
 
 		profesor.setNombre(nombre.trim());
-		profesor.setApellido(apellido.trim());
+		//profesor.setApellido(apellido.trim());
 		profesor.setContrasegna(contrasegna.trim());
 		profesor.setEmail(email.trim());
 

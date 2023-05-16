@@ -5,8 +5,8 @@
  */
 package com.ric.academix.daoImpl;
 
-import com.ric.academix.dao.AdministradorDao;
-import com.ric.academix.modelo.Administrador;
+import com.ric.academix.dao.AlumnoDao;
+import com.ric.academix.modelo.Alumno;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -14,41 +14,27 @@ import jakarta.persistence.NoResultException;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
-import java.util.List;
 
 /**
  *
  * @author ricar
  */
-public class AdministradorDaoImpl implements AdministradorDao {
+public class AlumnoDaoImpl implements AlumnoDao {
 
     private static final String PERSISTENCE = "persistence";
-    private static final AdministradorDaoImpl instance;
+    private static final AlumnoDaoImpl instance;
 
     static {
-        instance = new AdministradorDaoImpl();
+        instance = new AlumnoDaoImpl();
     }
 
-    public static AdministradorDaoImpl getInstance() {
+    public static AlumnoDaoImpl getInstance() {
         return instance;
     }
 
     @Override
-    public List<Administrador> consultarTodos() {
-        List<Administrador> administradores = null;
+    public void insertar(Alumno alumno) {
 
-        return administradores;
-    }
-
-    @Override
-    public Administrador consultar(int id) {
-        Administrador admin = null;
-
-        return admin;
-    }
-
-    @Override
-    public void insertar(Administrador administrador) {
         EntityManagerFactory emf = null;
         EntityManager em = null;
         EntityTransaction ts = null;
@@ -57,9 +43,11 @@ public class AdministradorDaoImpl implements AdministradorDao {
             emf = Persistence.createEntityManagerFactory(PERSISTENCE);
             em = emf.createEntityManager();
             ts = em.getTransaction();
+
             ts.begin();
-            em.persist(administrador);
+            em.persist(alumno);
             ts.commit();
+
         } catch (Exception e) {
             if (ts != null && ts.isActive()) {
                 ts.rollback();
@@ -73,44 +61,33 @@ public class AdministradorDaoImpl implements AdministradorDao {
                 emf.close();
             }
         }
-    }
-
-    @Override
-    public void actualizar(int id) {
 
     }
 
     @Override
-    public boolean eliminar(int id) {
-        boolean eliminado = false;
-
-        return eliminado;
-    }
-
-    @Override
-    public Administrador consultarPorEmailYContrasena(String email, String contrasena) {
+    public Alumno consultarPorEmailYContrasena(String email, String contrasegna) {
 
         EntityManagerFactory emf = null;
         EntityManager em = null;
-        Administrador admin = null;
+        Alumno alumno = null;
 
         try {
             emf = Persistence.createEntityManagerFactory(PERSISTENCE);
             em = emf.createEntityManager();
-            
-            String hql = "SELECT admin "
-                    + " FROM Administrador admin "
-                    + " WHERE admin.email = :v_email"
-                    + " AND admin.contrasegna = :v_contrasegna";
+
+            String hql = "SELECT alum "
+                    + " FROM Alumno alum "
+                    + " WHERE alum.email = :v_email"
+                    + " AND alum.contrasegna = :v_contrasegna";
             Query query = em.createQuery(hql);
             query.setParameter("v_email", email);
-            query.setParameter("v_contrasegna", contrasena);
-            admin = (Administrador) query.getSingleResult();
+            query.setParameter("v_contrasegna", contrasegna);
 
+            alumno = (Alumno) query.getSingleResult();
         } catch (NoResultException e) {
             return null;
         }
-        return admin;
+        return alumno;
     }
 
 }

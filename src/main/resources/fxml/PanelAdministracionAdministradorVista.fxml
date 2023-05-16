@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="767.0" prefWidth="1016.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ric.academix.controlador.AdministradorController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="767.0" prefWidth="1016.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ric.academix.controlador.PanelAdministracionAdministradorController">
    <left>
       <Pane prefHeight="619.0" prefWidth="188.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
          <children>
@@ -93,15 +93,31 @@
                 <TableColumn prefWidth="185.0" text="Profesor" />
               </columns>
             </TableView>
-            <Label layoutX="35.0" layoutY="430.0" prefHeight="17.0" prefWidth="148.0" text="Modificar / Eliminar">
+            <Label layoutX="35.0" layoutY="392.0" prefHeight="17.0" prefWidth="148.0" text="Modificar / Eliminar">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <ComboBox layoutX="33.0" layoutY="472.0" prefHeight="25.0" prefWidth="110.0" promptText="Usuario" />
-            <RadioButton layoutX="587.0" layoutY="469.0" mnemonicParsing="false" text="Modificar" />
-            <RadioButton layoutX="587.0" layoutY="494.0" mnemonicParsing="false" text="Eliminar" />
-            <Button layoutX="692.0" layoutY="474.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Aceptar" />
+            <ComboBox layoutX="33.0" layoutY="434.0" prefHeight="25.0" prefWidth="110.0" promptText="Usuario" />
+            <RadioButton layoutX="587.0" layoutY="431.0" mnemonicParsing="false" text="Modificar" />
+            <RadioButton layoutX="587.0" layoutY="456.0" mnemonicParsing="false" text="Eliminar" />
+            <Button layoutX="692.0" layoutY="436.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Aceptar" />
+            <TextField layoutX="178.0" layoutY="434.0" prefHeight="25.0" prefWidth="104.0" />
+            <TextField layoutX="302.0" layoutY="434.0" prefHeight="25.0" prefWidth="104.0" />
+            <TextField layoutX="431.0" layoutY="434.0" prefHeight="25.0" prefWidth="104.0" />
+            <TableView layoutX="32.0" layoutY="493.0" prefHeight="145.0" prefWidth="741.0" tableMenuButtonVisible="true">
+              <columns>
+                <TableColumn prefWidth="115.0" text="C1" />
+                <TableColumn prefWidth="100.0" text="C2" />
+                  <TableColumn prefWidth="107.0" text="Column X" />
+                  <TableColumn prefWidth="117.0" text="Column X" />
+                  <TableColumn prefWidth="134.0" text="Column X" />
+                  <TableColumn prefWidth="113.0" text="Column X" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
          </children>
       </AnchorPane>
    </center>

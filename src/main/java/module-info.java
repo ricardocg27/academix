@@ -4,13 +4,14 @@ module com.ric.academix {
     requires javafx.fxml;
 
     requires jakarta.persistence;
-    requires transitive javafx.graphics;
+    requires javafx.graphics;
 
     requires de.jensd.fx.glyphs.commons;
     requires de.jensd.fx.glyphs.fontawesome;
     requires charm.down.core;
     requires charm.down.plugin.display;
     requires org.controlsfx.controls;
+    
     
 
 

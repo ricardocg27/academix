@@ -28,10 +28,11 @@
    <center>
       <AnchorPane prefHeight="500.0" prefWidth="506.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField id="txtUsuario" fx:id="txtUsuario" layoutX="90.0" layoutY="177.0" prefHeight="25.0" prefWidth="167.0" promptText="User Name" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField id="txtUsuario" fx:id="txtUsuario" layoutX="90.0" layoutY="177.0" prefHeight="25.0" prefWidth="167.0" promptText="User Email" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
             <PasswordField id="txtPassword" fx:id="txtPassword" layoutX="90.0" layoutY="245.0" prefHeight="25.0" prefWidth="167.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-            <Button id="btnLogin" fx:id="btnLogin" layoutX="126.0" layoutY="326.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="96.0" text="Login" />
-            <Hyperlink layoutX="102.0" layoutY="430.0" text="Forgot your password?" />
+            <Button id="btnLogin" fx:id="btnLogin" layoutX="126.0" layoutY="326.0" mnemonicParsing="false" onAction="#login" prefHeight="33.0" prefWidth="96.0" text="Login" />
+            <Hyperlink fx:id="hypRegistrar" layoutX="145.0" layoutY="398.0" onAction="#irRegistrar" text="Register" />
+            <Hyperlink layoutX="102.0" layoutY="430.0" onAction="#recuperarContraseña" text="Forgot your password?" />
             <FontAwesomeIconView fill="#0598ff" glyphName="USERS" layoutX="152.0" layoutY="93.0" size="35" wrappingWidth="44.25" />
             <Text fill="#0598ff" layoutX="129.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User login">
                <font>
@@ -45,7 +46,6 @@
                   <FontAwesomeIconView id="icnExit" fx:id="icnExit" fill="#0589ff" glyphName="CLOSE" layoutX="4.0" layoutY="13.0" onMouseClicked="#exit" selectionFill="#751414" size="16" text="" wrappingWidth="12.571428298950195" />
                </children>
             </Pane>
-            <Hyperlink fx:id="hypRegistrar" layoutX="145.0" layoutY="398.0" onAction="#irRegistrar" text="Register" />
          </children>
       </AnchorPane>
    </center>
