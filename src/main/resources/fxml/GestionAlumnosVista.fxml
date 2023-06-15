@@ -1,72 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="822.0" prefWidth="1062.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ric.academix.controlador.GestionAlumnosController">
-    <center>
-        <Pane prefHeight="510.0" prefWidth="772.0" BorderPane.alignment="CENTER">
-            <BorderPane.margin>
-                <Insets />
-            </BorderPane.margin>
-            <children>
-                <ComboBox layoutX="277.0" layoutY="94.0" prefHeight="27.0" prefWidth="123.0" promptText="Curso" />
-                <TableView layoutX="67.0" layoutY="151.0" prefHeight="445.0" prefWidth="768.0">
-                    <columns>
-                        <TableColumn minWidth="0.0" prefWidth="0.0" />
-                        <TableColumn prefWidth="134.0" text="Nombre" />
-                        <TableColumn prefWidth="148.0" text="Primer apellido" />
-                        <TableColumn prefWidth="124.0" text="Segundo apellido" />
-                        <TableColumn prefWidth="100.0" text="Correo" />
-                        <TableColumn prefWidth="124.0" text="Tutor" />
-                        <TableColumn minWidth="0.0" prefWidth="137.0" text="Grupo/s" />
-                    </columns>
-                </TableView>
-                <ComboBox layoutX="435.0" layoutY="94.0" prefHeight="27.0" prefWidth="118.0" promptText="Grupo" />
-                <ComboBox layoutX="709.0" layoutY="94.0" prefHeight="27.0" prefWidth="115.0" promptText="Asignatura" />
-                <ComboBox layoutX="583.0" layoutY="94.0" prefHeight="27.0" prefWidth="102.0" promptText="Tutor" />
-                <Label layoutX="653.0" layoutY="31.0" opacity="0.49" text="GESTIÓN PROFESORES">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <TextField layoutX="79.0" layoutY="95.0" promptText="Nombre" />
-                <Button layoutX="640.0" layoutY="617.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="87.0" text="Modificar" />
-                <Button layoutX="750.0" layoutY="617.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="85.0" text="Eliminar" />
-            </children>
-        </Pane>
-    </center>
-    <left>
-        <Pane prefHeight="622.0" prefWidth="174.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
-            <children>
-                <ImageView fitHeight="173.0" fitWidth="162.0" layoutX="6.0" layoutY="470.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../imagenes/ACADEMIX.png" />
-                    </image>
-                </ImageView>
-            </children>
-        </Pane>
-    </left>
-    <top>
-        <Pane prefHeight="134.0" prefWidth="1062.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
-            <children>
-                <ImageView fitHeight="110.0" fitWidth="130.0" layoutX="906.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../imagenes/ACADEMIX.png" />
-                    </image>
-                </ImageView>
-                <Label layoutX="182.0" layoutY="87.0" opacity="0.6" text="ADMINISTRADOR:" textFill="WHITE">
-                    <font>
-                        <Font size="21.0" />
-                    </font>
-                </Label>
-            </children>
-        </Pane>
-    </top>
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#moverVentana" onMousePressed="#RegistrarPosicion" prefHeight="707.0" prefWidth="930.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ric.academix.controlador.GestionAlumnosController">
+   <left>
+      <Pane prefHeight="584.0" prefWidth="174.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="166.0" fitWidth="148.0" layoutX="13.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/ACADEMIX.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="lblPanelLateral" editable="false" focusTraversable="false" layoutY="280.0" prefHeight="25.0" prefWidth="174.0" text="Nombre usuario" />
+         </children>
+      </Pane>
+   </left>
+   <top>
+      <Pane prefHeight="123.0" prefWidth="930.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="114.0" fitWidth="120.0" layoutX="810.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/ACADEMIX.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblTitulo" layoutX="185.0" layoutY="78.0" opacity="0.6" prefHeight="31.0" prefWidth="459.0" text="ADMINISTRADOR:" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <FontAwesomeIconView fx:id="icnExit" fill="WHITE" glyphName="CLOSE" layoutX="907.0" layoutY="20.0" onMouseClicked="#exit" size="16" />
+         </children>
+      </Pane>
+   </top>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="tblAlumnos" layoutX="42.0" layoutY="117.0" prefHeight="390.0" prefWidth="672.0">
+              <columns>
+                <TableColumn fx:id="clmNombre" prefWidth="108.0" text="Nombre" />
+                <TableColumn fx:id="clmPrimerApellido" prefWidth="135.0" text="Primer apellido" />
+                  <TableColumn fx:id="clmSegundoApellido" prefWidth="117.0" text="Segundo apellido" />
+                  <TableColumn fx:id="clmCorreo" prefWidth="92.0" text="Correo" />
+                  <TableColumn fx:id="clmTutor" prefWidth="112.0" text="Tutor" />
+                  <TableColumn fx:id="clmGrupo" prefWidth="107.0" text="Grupo" />
+              </columns>
+            </TableView>
+            <Button fx:id="btnEliminar" layoutX="626.0" layoutY="529.0" mnemonicParsing="false" onAction="#eliminarAlumno" prefHeight="25.0" prefWidth="87.0" text="Eliminar" />
+            <Button fx:id="btnModificar" layoutX="517.0" layoutY="529.0" mnemonicParsing="false" onAction="#modificarAlumno" prefHeight="25.0" prefWidth="87.0" text="Modificar" />
+            <ComboBox fx:id="cmbGrupo" layoutX="42.0" layoutY="67.0" prefHeight="25.0" prefWidth="132.0" promptText="Grupo" />
+            <Label layoutX="469.0" layoutY="14.0" opacity="0.49" text="PANEL GESTIÓN ALUMNOS">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnFiltrar" layoutX="204.0" layoutY="67.0" mnemonicParsing="false" onAction="#filtrar" prefHeight="25.0" prefWidth="86.0" text="FIltrar" />
+         </children>
+      </Pane>
+   </center>
 </BorderPane>

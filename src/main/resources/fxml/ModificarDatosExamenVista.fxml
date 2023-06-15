@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<SplitPane fx:id="splitPane" dividerPositions="0.36496350364963503" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#moverVentana" onMousePressed="#registrarPosicion" orientation="VERTICAL" prefHeight="323.0" prefWidth="370.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ric.academix.controlador.ModificarDatosExamenController">
+   <items>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="105.0" prefWidth="368.0" style="-fx-background-color: #0598ff;">
+         <children>
+            <ImageView fitHeight="97.0" fitWidth="98.0" layoutX="264.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/ACADEMIX_2.png" />
+               </image>
+            </ImageView>
+            <FontAwesomeIconView fx:id="icnExit" fill="WHITE" glyphName="CLOSE" layoutX="348.0" layoutY="19.0" onMouseClicked="#exit" size="16" />
+         </children>
+      </AnchorPane>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="210.0" prefWidth="353.0">
+         <children>
+            <Button fx:id="btnAceptar" layoutX="155.0" layoutY="143.0" mnemonicParsing="false" onAction="#aceptar" prefHeight="25.0" prefWidth="84.0" text="Aceptar" />
+            <Button fx:id="btnCancelar" layoutX="264.0" layoutY="143.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="25.0" prefWidth="84.0" text="Cancelar" />
+            <TextField fx:id="txtNombre" layoutX="19.0" layoutY="39.0" promptText="Nombre" />
+            <TextField fx:id="txtPorcentaje" layoutX="199.0" layoutY="39.0" promptText="Porcentaje" />
+            <ComboBox fx:id="cmbAsignatura" layoutX="199.0" layoutY="90.0" prefWidth="150.0" promptText="Asignatura" />
+            <ComboBox fx:id="cmbGrupo" layoutX="19.0" layoutY="90.0" prefWidth="150.0" promptText="Grupo" />
+         </children>
+      </AnchorPane>
+   </items>
+</SplitPane>

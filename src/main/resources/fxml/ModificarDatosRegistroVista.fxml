@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<SplitPane fx:id="splitPane" dividerPositions="0.2889447236180904" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#moverVentana" onMousePressed="#registrarPosicion" orientation="VERTICAL" prefHeight="396.0" prefWidth="562.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ric.academix.controlador.ModificarDatosRegistroController">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #0598ff;">
+         <children>
+            <ImageView fitHeight="104.0" fitWidth="154.0" layoutX="442.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/ACADEMIX_2.png" />
+               </image>
+            </ImageView>
+            <FontAwesomeIconView fx:id="exit" fill="WHITE" glyphName="CLOSE" layoutX="533.0" layoutY="19.0" onMouseClicked="#exit" size="16" />
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+         <children>
+            <TextField fx:id="txtAlumno" editable="false" layoutX="14.0" layoutY="44.0" prefHeight="25.0" prefWidth="173.0" />
+            <DatePicker fx:id="dtpFechaRegistro" editable="false" layoutX="386.0" layoutY="148.0" prefHeight="25.0" prefWidth="149.0" promptText="Fecha" />
+            <ComboBox fx:id="cmbTareasCasa" layoutX="209.0" layoutY="44.0" prefWidth="150.0" promptText="Tareas de casa" />
+            <ComboBox fx:id="cmbAtencion" layoutX="209.0" layoutY="97.0" prefWidth="150.0" promptText="Atención" />
+            <ComboBox fx:id="cmbParticipacion" layoutX="384.0" layoutY="44.0" prefWidth="150.0" promptText="Participación" />
+            <ComboBox fx:id="cmbTareasClase" layoutX="385.0" layoutY="97.0" prefWidth="150.0" promptText="Tareas de clase" />
+            <Button fx:id="btnCancelar" layoutX="450.0" layoutY="205.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="25.0" prefWidth="84.0" text="Cancelar" />
+            <Button fx:id="btnAceptar" layoutX="342.0" layoutY="205.0" mnemonicParsing="false" onAction="#aceptar" prefHeight="25.0" prefWidth="84.0" text="Aceptar" />
+         </children></AnchorPane>
+  </items>
+</SplitPane>

@@ -7,6 +7,7 @@ package com.ric.academix.dao;
 
 import com.ric.academix.modelo.Administrador;
 import java.util.List;
+import javafx.scene.control.PasswordField;
 
 /**
  *
@@ -18,8 +19,11 @@ public interface AdministradorDao {
 	Administrador consultar(int id);
         Administrador consultarPorEmailYContrasena(String email, String contrasena);
 	void insertar(Administrador administrador);
-	void actualizar(int id);
+	boolean actualizar(Administrador administrador);
 	boolean eliminar(int id);
+        Administrador consultarContrasena(Administrador admin, PasswordField txtOldPass);
+
+    public boolean actualizarContrasena(Administrador admin, PasswordField txtNewPass);
 	
     
 }

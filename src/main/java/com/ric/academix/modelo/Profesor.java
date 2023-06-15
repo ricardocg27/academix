@@ -22,6 +22,7 @@ import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.util.List;
 
 /**
  *
@@ -47,15 +48,37 @@ public class Profesor implements Serializable {
     private String contrasegna;
     @Column(name = "email")
     private String email;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tutorId")
     private Collection<Grupo> grupoCollection;
+    
+     //bi-directional many-to-one association to ProfesorAsignatura
+    @OneToMany(mappedBy = "profesor")
+    private List<ProfesorAsignatura> profesorAsignaturas;
+    
+    
     @JoinColumn(name = "tipo_usuario", insertable = false, updatable = false, referencedColumnName = "codigo")
     @ManyToOne
     private TipoUsuario tipoUsuario;
     @Column(name = "tipo_usuario")
     private int codigoTipoUsuario;
 
+    @Column(name = "fecha_nacimiento")
+    private String fechaNacimiento;
+    @Column(name = "telefono")
+    private String telefono;
+    @Column(name = "direccion")
+    private String direccion;
+
     public Profesor() {
+    }
+
+    public Profesor(Integer id, String nombre, String primerApellido, String segundoApellido, String email) {
+        this.id = id;
+        this.nombre = nombre;
+        this.primerApellido = primerApellido;
+        this.segundoApellido = segundoApellido;
+        this.email = email;
     }
 
     public Profesor(String nombre, String primerApellido, String segundoApellido, String contrasegna, String email, int codigoTipoUsuario) {
@@ -65,6 +88,11 @@ public class Profesor implements Serializable {
         this.contrasegna = contrasegna;
         this.email = email;
         this.codigoTipoUsuario = codigoTipoUsuario;
+    }
+
+    public String getNombreCompleto() {
+        String nombreCompleto = this.nombre + " " + this.primerApellido + " " + this.segundoApellido;
+        return nombreCompleto;
     }
 
     public Profesor(Integer id) {
@@ -143,6 +171,45 @@ public class Profesor implements Serializable {
         this.codigoTipoUsuario = codigoTipoUsuario;
     }
 
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    @Override
+    public String toString() {
+        return "Profesor{" + "id=" + id
+                + ", nombre=" + nombre
+                + ", primerApellido=" + primerApellido
+                + ", segundoApellido=" + segundoApellido
+                + ", contrasegna=" + contrasegna
+                + ", email=" + email
+                + ", tipoUsuario=" + tipoUsuario
+                + ", codigoTipoUsuario=" + codigoTipoUsuario
+                + ", fechaNacimiento=" + fechaNacimiento
+                + ", telefono=" + telefono
+                + ", direccion=" + direccion + '}';
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -161,11 +228,6 @@ public class Profesor implements Serializable {
             return false;
         }
         return true;
-    }
-
-    @Override
-    public String toString() {
-        return "com.ric.academix.modelo.Profesor[ id=" + id + " ]";
     }
 
 }

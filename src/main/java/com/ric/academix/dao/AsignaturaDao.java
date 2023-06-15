@@ -1,8 +1,8 @@
 package com.ric.academix.dao;
 
+import com.ric.academix.modelo.Asignatura;
 import java.util.List;
 
-import com.ric.academix.modelo.Asignatura;
 
 public interface AsignaturaDao {
 
@@ -13,4 +13,7 @@ public interface AsignaturaDao {
 	boolean eliminar(int id);
 	List<Asignatura> consultarAsignaturaEnExamen(int codigo);
 	List<Asignatura> consultarAsignaturaProfesor(int codigo);
+        public Asignatura consultarPorNombre(String nombreAsignatura);
+
+    
 }

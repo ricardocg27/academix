@@ -162,7 +162,7 @@ public class RegisterControlador implements Initializable {
 
         validador.registerValidator(txtNombre, Validator.createEmptyValidator("Campo requerido"));
         validador.registerValidator(txtPrimerApellido, Validator.createEmptyValidator("Campo requerido"));
-         validador.registerValidator(txtSegundoApellido, Validator.createEmptyValidator("Campo requerido"));
+        validador.registerValidator(txtSegundoApellido, Validator.createEmptyValidator("Campo requerido"));
         validador.registerValidator(txtContra, Validator.createEmptyValidator("Campo requerido"));
         validador.registerValidator(txtEmail, Validator.createEmptyValidator("Campo requerido"));
         validador.registerValidator(txtCodigo, Validator.createEmptyValidator("Campo requerido"));
@@ -172,10 +172,10 @@ public class RegisterControlador implements Initializable {
         validador.registerValidator(cmbCategoria, Validator.createEmptyValidator("Elige una categoría"));
 
         if (validador.isInvalid()) {
-            System.out.println("Entro al validador");
+
             camposRellenos = false;
         } else {
-            System.out.println("Están todos rellenos");
+
             camposRellenos = true;
         }
 
@@ -287,7 +287,7 @@ public class RegisterControlador implements Initializable {
         Alumno alumno = null;
 
         nombre = txtNombre.getText();
-       apellido1 = txtPrimerApellido.getText();
+        apellido1 = txtPrimerApellido.getText();
         apellido2 = txtSegundoApellido.getText();
         contrasegna = txtContra.getText();
         email = txtEmail.getText();

@@ -11,6 +11,15 @@
     <class>com.ric.academix.modelo.TipoUsuario_1</class>
     <class>com.ric.academix.modelo.Administrador_1</class>
     <class>com.ric.academix.modelo.Grupo</class>
+    <class>com.ric.academix.modelo.CuadernoProfesor</class>
+    <class>com.ric.academix.modelo.Grupo_1</class>
+    <class>com.ric.academix.modelo.TareaEvaluable</class>
+    <class>com.ric.academix.modelo.Examen</class>
+    <class>com.ric.academix.modelo.Nota</class>
+    <class>com.ric.academix.modelo.NotaTareaEvaluable</class>
+    <class>com.ric.academix.modelo.NotaExamen</class>
+    <class>com.ric.academix.modelo.Examen_1</class>
+    <class>com.ric.academix.modelo.TareaEvaluable_1</class>
     <properties>
       <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/escuela"/>
       <property name="jakarta.persistence.jdbc.user" value="root"/>

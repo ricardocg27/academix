@@ -2,95 +2,97 @@ package com.ric.academix.modelo;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import java.util.Collection;
 import java.util.List;
-
 
 /**
  * The persistent class for the asignatura database table.
- * 
+ *
  */
 @Entity
-@NamedQuery(name="Asignatura.findAll", query="SELECT a FROM Asignatura a")
+@NamedQuery(name = "Asignatura.findAll", query = "SELECT a FROM Asignatura a")
 public class Asignatura implements Serializable {
-	private static final long serialVersionUID = 1L;
 
-	@Id
-	private int id;
+    private static final long serialVersionUID = 1L;
 
-	private String nombre;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private int id;
+    @Column(name = "nombre")
+    private String nombre;
 
-	//bi-directional many-to-one association to Examen
-	@OneToMany(mappedBy="asignatura")
-	private List<Examen> examens;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "asignaturaId")
+    private Collection<Examen> examenCollection;
+    @OneToMany(mappedBy = "asignaturaId")
+    private Collection<TareaEvaluable> tareaEvaluableCollection;
 
-	//bi-directional many-to-one association to ProfesorAsignatura
-	@OneToMany(mappedBy="asignatura")
-	private List<ProfesorAsignatura> profesorAsignaturas;
+    //bi-directional many-to-one association to ProfesorAsignatura
+    @OneToMany(mappedBy = "asignatura")
+    private List<ProfesorAsignatura> profesorAsignaturas;
 
-	public Asignatura() {
-	}
-	public Asignatura(String nombre) {
-		this.nombre = nombre;
-	}
+    public Asignatura() {
+    }
 
-	public int getId() {
-		return this.id;
-	}
+    public Asignatura(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return this.id;
+    }
 
-	public String getNombre() {
-		return this.nombre;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    public String getNombre() {
+        return this.nombre;
+    }
 
-	public List<Examen> getExamens() {
-		return this.examens;
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public void setExamens(List<Examen> examens) {
-		this.examens = examens;
-	}
+    public Collection<Examen> getExamenCollection() {
+        return examenCollection;
+    }
 
-	public Examen addExamen(Examen examen) {
-		getExamens().add(examen);
-		examen.setAsignatura(this);
+    public void setExamenCollection(Collection<Examen> examenCollection) {
+        this.examenCollection = examenCollection;
+    }
 
-		return examen;
-	}
+    public Collection<TareaEvaluable> getTareaEvaluableCollection() {
+        return tareaEvaluableCollection;
+    }
 
-	public Examen removeExamen(Examen examen) {
-		getExamens().remove(examen);
-		examen.setAsignatura(null);
+    public void setTareaEvaluableCollection(Collection<TareaEvaluable> tareaEvaluableCollection) {
+        this.tareaEvaluableCollection = tareaEvaluableCollection;
+    }
 
-		return examen;
-	}
+    public List<ProfesorAsignatura> getProfesorAsignaturas() {
+        return this.profesorAsignaturas;
+    }
 
-	public List<ProfesorAsignatura> getProfesorAsignaturas() {
-		return this.profesorAsignaturas;
-	}
+    public void setProfesorAsignaturas(List<ProfesorAsignatura> profesorAsignaturas) {
+        this.profesorAsignaturas = profesorAsignaturas;
+    }
 
-	public void setProfesorAsignaturas(List<ProfesorAsignatura> profesorAsignaturas) {
-		this.profesorAsignaturas = profesorAsignaturas;
-	}
+    public ProfesorAsignatura addProfesorAsignatura(ProfesorAsignatura profesorAsignatura) {
+        getProfesorAsignaturas().add(profesorAsignatura);
+        profesorAsignatura.setAsignatura(this);
 
-	public ProfesorAsignatura addProfesorAsignatura(ProfesorAsignatura profesorAsignatura) {
-		getProfesorAsignaturas().add(profesorAsignatura);
-		profesorAsignatura.setAsignatura(this);
+        return profesorAsignatura;
+    }
 
-		return profesorAsignatura;
-	}
+    public ProfesorAsignatura removeProfesorAsignatura(ProfesorAsignatura profesorAsignatura) {
+        getProfesorAsignaturas().remove(profesorAsignatura);
+        profesorAsignatura.setAsignatura(null);
 
-	public ProfesorAsignatura removeProfesorAsignatura(ProfesorAsignatura profesorAsignatura) {
-		getProfesorAsignaturas().remove(profesorAsignatura);
-		profesorAsignatura.setAsignatura(null);
-
-		return profesorAsignatura;
-	}
+        return profesorAsignatura;
+    }
 
 }

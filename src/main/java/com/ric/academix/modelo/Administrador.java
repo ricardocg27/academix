@@ -46,9 +46,15 @@ public class Administrador implements Serializable {
     @JoinColumn(name = "tipo_usuario", insertable = false, updatable = false, referencedColumnName = "codigo")
     @ManyToOne
     private TipoUsuario tipoUsuario;
-
     @Column(name = "tipo_usuario")
     private int codigoTipoUsuario;
+
+    @Column(name = "fecha_nacimiento")
+    private String fechaNacimiento;
+    @Column(name = "telefono")
+    private String telefono;
+    @Column(name = "direccion")
+    private String direccion;
 
     public Administrador() {
     }
@@ -130,6 +136,32 @@ public class Administrador implements Serializable {
         this.codigoTipoUsuario = codigoTipoUsuario;
     }
 
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+    
+    
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -152,17 +184,14 @@ public class Administrador implements Serializable {
 
     @Override
     public String toString() {
-        return "Administrador{" + "id=" + id + 
-                ", nombre=" + nombre + 
-                ", primerApellido=" + primerApellido + 
-                ", segundoApellido=" + segundoApellido + 
-                ", contrasegna=" + contrasegna + 
-                ", email=" + email + 
-                ", tipoUsuario=" + tipoUsuario + 
-                ", codigoTipoUsuario=" + codigoTipoUsuario + '}';
+        return "Administrador{" + "id=" + id
+                + ", nombre=" + nombre
+                + ", primerApellido=" + primerApellido
+                + ", segundoApellido=" + segundoApellido
+                + ", contrasegna=" + contrasegna
+                + ", email=" + email
+                + ", tipoUsuario=" + tipoUsuario
+                + ", codigoTipoUsuario=" + codigoTipoUsuario + '}';
     }
 
-    
-
-    
 }

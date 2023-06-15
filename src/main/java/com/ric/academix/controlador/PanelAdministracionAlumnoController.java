@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
  *
  * @author ricar
  */
-public class CalendarioController implements Initializable {
+public class PanelAdministracionAlumnoController implements Initializable {
 
     /**
      * Initializes the controller class.

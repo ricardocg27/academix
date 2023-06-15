@@ -12,6 +12,7 @@ import jakarta.persistence.NoResultException;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
+import javafx.scene.control.PasswordField;
 
 public class ProfesorDaoImpl implements ProfesorDao {
 
@@ -99,8 +100,45 @@ public class ProfesorDaoImpl implements ProfesorDao {
     }
 
     @Override
-    public void actualizar(Profesor profesor) {
+    public boolean actualizar(Profesor profesorNuevo) {
+        EntityManagerFactory emf = null;
+        EntityManager em = null;
+        EntityTransaction ts = null;
 
+        Profesor profesorAntiguo = null;
+        boolean actualizado = false;
+
+        try {
+            emf = Persistence.createEntityManagerFactory(PERSISTENCE);
+            em = emf.createEntityManager();
+            profesorAntiguo = em.find(Profesor.class, profesorNuevo.getId());
+
+            if (profesorAntiguo != null) {
+                ts = em.getTransaction();
+                ts.begin();
+
+                profesorAntiguo.setNombre(profesorNuevo.getNombre());
+                profesorAntiguo.setPrimerApellido(profesorNuevo.getPrimerApellido());
+                profesorAntiguo.setSegundoApellido(profesorNuevo.getSegundoApellido());
+                profesorAntiguo.setEmail(profesorNuevo.getEmail());
+
+                ts.commit();
+                actualizado = true;
+            }
+        } catch (Exception e) {
+            if (ts != null && ts.isActive()) {
+                ts.rollback();
+            }
+            throw e;
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+            if (emf != null) {
+                emf.close();
+            }
+        }
+        return actualizado;
     }
 
     @Override
@@ -138,14 +176,15 @@ public class ProfesorDaoImpl implements ProfesorDao {
     }
 
     @Override
-    public List<Profesor> consultarProfesorTutor() {
+    public List<Profesor> consultarProfesoresSonTutores() {
         EntityManagerFactory emf = null;
         EntityManager em = null;
         List<Profesor> listaProfesores;
         try {
             emf = Persistence.createEntityManagerFactory(PERSISTENCE);
             em = emf.createEntityManager();
-            String consulta = "SELECT p FROM Profesor p "
+            String consulta = "SELECT p "
+                    + "FROM Profesor p "
                     + "WHERE p.id IN (SELECT g.tutorId FROM Grupo g)";
             listaProfesores = em.createQuery(consulta, Profesor.class).getResultList();
         } finally {
@@ -213,8 +252,202 @@ public class ProfesorDaoImpl implements ProfesorDao {
             return null;
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+            if (emf != null) {
+                emf.close();
+            }
         }
         return profesor;
+    }
+
+    @Override
+    public int consultarIdPorNombreYApellidos(List<String> nombres) {
+
+        EntityManagerFactory emf = null;
+        EntityManager em = null;
+        Profesor profesor = null;
+        int idProfesor = -1;
+        try {
+            emf = Persistence.createEntityManagerFactory(PERSISTENCE);
+            em = emf.createEntityManager();
+
+            String hql = "SELECT prof.id "
+                    + " FROM Profesor prof "
+                    + " WHERE prof.nombre LIKE :v_nombre "
+                    + " AND prof.primerApellido LIKE :v_primer_apellido "
+                    + " AND prof.segundoApellido LIKE :v_segundo_apellido";
+            Query query = em.createQuery(hql);
+            query.setParameter("v_nombre", "%" + nombres.get(0));
+            query.setParameter("v_primer_apellido", "%" + nombres.get(1));
+            query.setParameter("v_segundo_apellido", "%" + nombres.get(2));
+            idProfesor = (int) query.getSingleResult();
+
+        } catch (NoResultException e) {
+            e.printStackTrace();
+            idProfesor = -1;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+            if (emf != null) {
+                emf.close();
+            }
+        }
+        return idProfesor;
+
+    }
+
+    @Override
+    public Profesor consultarTutor(Integer id) {
+        EntityManagerFactory emf = null;
+        EntityManager em = null;
+        Profesor profesor = null;
+        try {
+            emf = Persistence.createEntityManagerFactory(PERSISTENCE);
+            em = emf.createEntityManager();
+
+            String hql = "SELECT profesor "
+                    + "FROM Profesor profesor "
+                    + "WHERE profesor.id = :v_idProfesor "
+                    + "AND profesor.id IN (SELECT grupo.tutorId.id "
+                    + "                    FROM Grupo grupo)";
+            Query query = em.createQuery(hql);
+            query.setParameter("v_idProfesor", id);
+            profesor = (Profesor) query.getSingleResult();
+
+        } catch (NoResultException e) {
+            profesor = null;
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+            if (emf != null) {
+                emf.close();
+            }
+        }
+        return profesor;
+    }
+
+    @Override
+    public boolean actualizarDatosUsuario(Profesor profesorNuevo) {
+        EntityManagerFactory emf = null;
+        EntityManager em = null;
+        EntityTransaction ts = null;
+
+        Profesor profesorAntiguo = null;
+        boolean actualizado = false;
+
+        try {
+            emf = Persistence.createEntityManagerFactory(PERSISTENCE);
+            em = emf.createEntityManager();
+            profesorAntiguo = em.find(Profesor.class, profesorNuevo.getId());
+
+            if (profesorAntiguo != null) {
+                ts = em.getTransaction();
+                ts.begin();
+
+                profesorAntiguo.setNombre(profesorNuevo.getNombre());
+                profesorAntiguo.setPrimerApellido(profesorNuevo.getPrimerApellido());
+                profesorAntiguo.setSegundoApellido(profesorNuevo.getSegundoApellido());
+                profesorAntiguo.setFechaNacimiento(profesorNuevo.getFechaNacimiento());
+                profesorAntiguo.setTelefono(profesorNuevo.getTelefono());
+                profesorAntiguo.setEmail(profesorNuevo.getEmail());
+                profesorAntiguo.setDireccion(profesorNuevo.getDireccion());
+
+                ts.commit();
+                actualizado = true;
+            }
+        } catch (Exception e) {
+            if (ts != null && ts.isActive()) {
+                ts.rollback();
+            }
+            throw e;
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+            if (emf != null) {
+                emf.close();
+            }
+        }
+        return actualizado;
+    }
+
+    @Override
+    public Profesor consultarPorContrasena(Profesor prof, PasswordField txtOldPass) {
+        EntityManagerFactory emf = null;
+        EntityManager em = null;
+        Profesor profesor = null;
+        try {
+            emf = Persistence.createEntityManagerFactory(PERSISTENCE);
+            em = emf.createEntityManager();
+
+            String hql = "SELECT prof "
+                    + " FROM Profesor prof "
+                    + " WHERE prof.id = :v_id"
+                    + " AND prof.contrasegna = :v_contrasegna";
+            Query query = em.createQuery(hql);
+            query.setParameter("v_id", prof.getId());
+            query.setParameter("v_contrasegna", txtOldPass.getText());
+
+            profesor = (Profesor) query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+            if (emf != null) {
+                emf.close();
+            }
+        }
+        return profesor;
+    }
+
+    @Override
+    public boolean actualizarContrasena(Profesor prof, PasswordField txtNewPass) {
+        EntityManagerFactory emf = null;
+        EntityManager em = null;
+        EntityTransaction ts = null;
+
+        Profesor profesorAntiguo = null;
+        boolean actualizado = false;
+
+        try {
+            emf = Persistence.createEntityManagerFactory(PERSISTENCE);
+            em = emf.createEntityManager();
+            profesorAntiguo = em.find(Profesor.class, prof.getId());
+
+            if (profesorAntiguo != null) {
+                ts = em.getTransaction();
+                ts.begin();
+
+                profesorAntiguo.setContrasegna(txtNewPass.getText());
+
+                ts.commit();
+                actualizado = true;
+            }
+        } catch (Exception e) {
+            if (ts != null && ts.isActive()) {
+                ts.rollback();
+            }
+            throw e;
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+            if (emf != null) {
+                emf.close();
+            }
+        }
+        return actualizado;
     }
 
 }

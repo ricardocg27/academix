@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<SplitPane fx:id="splitPane" dividerPositions="0.40408163265306124" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#moverVentana" onMousePressed="#registrarPosicion" orientation="VERTICAL" prefHeight="287.0" prefWidth="429.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ric.academix.controlador.ModificarDatosAsignaturaController">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="90.0" prefWidth="449.0" style="-fx-background-color: #0598ff;">
+         <children>
+            <ImageView fitHeight="97.0" fitWidth="118.0" layoutX="304.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/ACADEMIX_2.png" />
+               </image>
+            </ImageView>
+            <FontAwesomeIconView fx:id="btnExit" fill="WHITE" glyphName="CLOSE" layoutX="395.0" layoutY="28.0" onMousePressed="#exit" size="16" />
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="142.0" prefWidth="449.0">
+         <children>
+            <ComboBox fx:id="cmbProfesor" layoutX="223.0" layoutY="37.0" prefHeight="16.0" prefWidth="183.0" promptText="Profesor" />
+            <Button fx:id="btnAceptar" layoutX="199.0" layoutY="106.0" mnemonicParsing="false" onAction="#aceptarCambios" prefHeight="25.0" prefWidth="89.0" text="Aceptar" />
+            <Button fx:id="btnCancelar" layoutX="316.0" layoutY="106.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="25.0" prefWidth="89.0" text="Cancelar" />
+            <ComboBox fx:id="cmbAsignatura" layoutX="24.0" layoutY="37.0" prefHeight="25.0" prefWidth="183.0" promptText="Asignatura" />
+         </children></AnchorPane>
+  </items>
+</SplitPane>

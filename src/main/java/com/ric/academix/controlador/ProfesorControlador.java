@@ -58,7 +58,7 @@ public class ProfesorControlador {
 		Profesor profesor;
 		ProfesorDao profesorDao = ProfesorDaoImpl.getInstance();
 		List<Profesor> listaProfesores;
-		List<Profesor> listaProfesorEnGrupo;
+		List<Profesor> listaProfesorEnGrupo = null;
 		
 		try {
 			do {
@@ -107,7 +107,7 @@ public class ProfesorControlador {
 						System.err.println("Profesor no encontrado en la base de datos.");
 					}
 					else {
-						listaProfesorEnGrupo = profesorDao.consultarProfesorTutor();
+						//listaProfesorEnGrupo = profesorDao.consultarProfesorTutor();
 						if (listaProfesorEnGrupo.size() > 0) {
 							System.err.println("No se puede eliminar. Existe "
 									+ "al menos un grupo con ese profesor referenciado.");

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#moverVentana" onMousePressed="#registrarPosicion" prefHeight="631.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ric.academix.controlador.GestionGruposController"> 
+   <top>
+      <Pane prefHeight="108.0" prefWidth="910.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="106.0" fitWidth="108.0" layoutX="666.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/ACADEMIX.png" />
+               </image>
+            </ImageView>
+            <FontAwesomeIconView fx:id="icnExit" fill="WHITE" glyphName="CLOSE" layoutX="759.0" layoutY="20.0" onMouseClicked="#exit" size="16" />
+            <Label fx:id="lblTitulo" layoutX="180.0" layoutY="66.0" opacity="0.6" prefHeight="31.0" prefWidth="420.0" text="ADMINISTRADOR:" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </top>
+   <left>
+      <Pane prefHeight="572.0" prefWidth="169.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="147.0" fitWidth="152.0" layoutX="11.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/ACADEMIX.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="lblPanelLateral" editable="false" focusTraversable="false" layoutX="-2.0" layoutY="253.0" prefHeight="25.0" prefWidth="171.0" text="Nombre usuario" />
+         </children>
+      </Pane>
+   </left>
+   <center>
+      <Pane prefHeight="528.0" prefWidth="650.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="tblGrupo" layoutX="34.0" layoutY="84.0" prefHeight="368.0" prefWidth="550.0">
+              <columns>
+                <TableColumn fx:id="clmCurso" prefWidth="162.0" text="Curso" />
+                  <TableColumn fx:id="clmLetra" prefWidth="74.0" text="Letra" />
+                  <TableColumn fx:id="clmTutor" prefWidth="196.0" text="Tutor" />
+                  <TableColumn fx:id="clmNumeroAlumnos" prefWidth="117.0" text="Nº alumnos" />
+              </columns>
+            </TableView>
+            <Button fx:id="btnEliminar" layoutX="503.0" layoutY="479.0" mnemonicParsing="false" onAction="#eliminarGrupo" prefHeight="30.0" prefWidth="81.0" text="Eliminar" />
+            <Label layoutX="348.0" layoutY="38.0" opacity="0.49" prefHeight="33.0" prefWidth="236.0" text="PANEL GESTIÓN GRUPOS">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

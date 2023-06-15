@@ -1,89 +1,126 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.ric.academix.modelo;
 
 import java.io.Serializable;
-import jakarta.persistence.*;
-import java.util.List;
-
+import jakarta.persistence.Basic;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 /**
- * The persistent class for the examen database table.
- * 
+ *
+ * @author ricar
  */
 @Entity
-@NamedQuery(name="Examen.findAll", query="SELECT e FROM Examen e")
+@Table(name = "examen")
 public class Examen implements Serializable {
-	private static final long serialVersionUID = 1L;
 
-	@Id
-	private int id;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
+    @Column(name = "nombre")
+    private String nombre;
+    @Column(name = "fecha")
+    private String fecha;
+    @Column(name = "porcentaje")
+    private Integer porcentaje;
+    @JoinColumn(name = "asignatura_id", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Asignatura asignaturaId;
+    @JoinColumn(name = "grupo_id", referencedColumnName = "id")
+    @ManyToOne
+    private Grupo grupoId;
 
-	private String fecha;
+    public Examen() {
+    }
 
-	private String nombre;
+    public Examen(Integer id) {
+        this.id = id;
+    }
 
-	//bi-directional many-to-one association to Asignatura
-	@ManyToOne
-	private Asignatura asignatura;
+    public Integer getId() {
+        return id;
+    }
 
-	//bi-directional many-to-one association to Nota
-	@OneToMany(mappedBy="examen")
-	private List<Nota> notas;
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public Examen() {
-	}
+    public String getNombre() {
+        return nombre;
+    }
 
-	public int getId() {
-		return this.id;
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public String getFecha() {
+        return fecha;
+    }
 
-	public String getFecha() {
-		return this.fecha;
-	}
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
 
-	public void setFecha(String fecha) {
-		this.fecha = fecha;
-	}
+    public Integer getPorcentaje() {
+        return porcentaje;
+    }
 
-	public String getNombre() {
-		return this.nombre;
-	}
+    public void setPorcentaje(Integer porcentaje) {
+        this.porcentaje = porcentaje;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    public Asignatura getAsignaturaId() {
+        return asignaturaId;
+    }
 
-	public Asignatura getAsignatura() {
-		return this.asignatura;
-	}
+    public void setAsignaturaId(Asignatura asignaturaId) {
+        this.asignaturaId = asignaturaId;
+    }
 
-	public void setAsignatura(Asignatura asignatura) {
-		this.asignatura = asignatura;
-	}
+    public Grupo getGrupoId() {
+        return grupoId;
+    }
 
-	public List<Nota> getNotas() {
-		return this.notas;
-	}
+    public void setGrupoId(Grupo grupoId) {
+        this.grupoId = grupoId;
+    }
 
-	public void setNotas(List<Nota> notas) {
-		this.notas = notas;
-	}
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
+    }
 
-	public Nota addNota(Nota nota) {
-		getNotas().add(nota);
-		nota.setExamen(this);
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Examen)) {
+            return false;
+        }
+        Examen other = (Examen) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+            return false;
+        }
+        return true;
+    }
 
-		return nota;
-	}
-
-	public Nota removeNota(Nota nota) {
-		getNotas().remove(nota);
-		nota.setExamen(null);
-
-		return nota;
-	}
+    @Override
+    public String toString() {
+        return "com.ric.academix.modelo.Examen_1[ id=" + id + " ]";
+    }
 
 }

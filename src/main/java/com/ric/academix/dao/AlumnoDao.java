@@ -6,6 +6,8 @@
 package com.ric.academix.dao;
 
 import com.ric.academix.modelo.Alumno;
+import com.ric.academix.modelo.Grupo;
+import java.util.List;
 
 /**
  *
@@ -13,8 +15,15 @@ import com.ric.academix.modelo.Alumno;
  */
 public interface AlumnoDao {
     
-    
+    List<Alumno> consultarTodos();
     Alumno consultarPorEmailYContrasena(String email, String contrasegna);
     void insertar(Alumno alumno);
+    boolean actualizar(Alumno alumno);
+    boolean eliminar(Alumno alumno);
+    List<Alumno> consultarPorGrupo(Grupo grupo);
+    int eliminarGrupo(Grupo grupo);
+    Alumno consultarPorNombreYApellidos(List<String> nombres);
+
+   
     
 }

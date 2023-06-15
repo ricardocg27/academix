@@ -17,6 +17,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -25,6 +26,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -40,17 +42,24 @@ public class PanelGeneralAdministradorController implements Initializable {
     @FXML
     private Pane pnePerfilUsuario;
 
+    @FXML
+    private Pane pnePanelAdministracion;
+    @FXML
+    private Pane pnePanelGestionProfesores;
+    @FXML
+    private Pane pneCalendario;
     private double xOffset = 0;
     private double yOffset = 0;
     private Stage stage;
     private Administrador usuario;
     @FXML
-    private Pane pnePanelAdministracion;
-    @FXML
-    private Pane pnePanelGestionProfesores;
+    private Pane pneGestionAlumnos;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Tooltip tooltip = new Tooltip("Beta version: not implemented yet");
+        tooltip.setShowDelay(Duration.millis(50));
+        Tooltip.install(pneCalendario, tooltip);
 
     }
 
@@ -117,6 +126,7 @@ public class PanelGeneralAdministradorController implements Initializable {
             Parent root = loader.load();
 
             PoliticaPrivacidadController controlador = loader.getController();
+            controlador.setAdministrador(usuario);
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -141,6 +151,7 @@ public class PanelGeneralAdministradorController implements Initializable {
             Parent root = loader.load();
 
             PanelAdministracionAdministradorController controlador = loader.getController();
+            controlador.setAdministrador(usuario);
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -159,10 +170,12 @@ public class PanelGeneralAdministradorController implements Initializable {
             stage = (Stage) borderPane.getScene().getWindow();
             stage.close();
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/GestionProfesoresVista.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/GestionElementosVista.fxml"));
             Parent root = loader.load();
 
-            GestionProfesoresController controlador = loader.getController();
+            GestionElementosController controlador = loader.getController();
+            controlador.setAdministrador(usuario);
+            controlador.setRuta(1);
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -173,6 +186,32 @@ public class PanelGeneralAdministradorController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void irGestionAlumnos(MouseEvent event) {
+
+        try {
+            stage = (Stage) borderPane.getScene().getWindow();
+            stage.close();
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/GestionAlumnosVista.fxml"));
+            Parent root = loader.load();
+
+            GestionAlumnosController controlador = loader.getController();
+            controlador.setAdministrador(usuario);
+            controlador.setRuta(1);
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.initStyle(StageStyle.DECORATED.UNDECORATED);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }

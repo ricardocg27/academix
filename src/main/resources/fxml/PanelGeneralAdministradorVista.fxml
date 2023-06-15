@@ -22,7 +22,7 @@
                   <Image url="@../imagenes/ACADEMIX.png" />
                </image>
             </ImageView>
-            <FontAwesomeIconView id="icnExit" fx:id="icnExit" fill="WHITE" glyphName="CLOSE" layoutX="791.0" layoutY="34.0" onMouseClicked="#exit" size="16" />
+            <FontAwesomeIconView id="icnExit" fx:id="icnExit" fill="WHITE" glyphName="CLOSE" layoutX="817.0" layoutY="21.0" onMouseClicked="#exit" size="16" />
          </children>
       </Pane>
    </top>
@@ -47,13 +47,13 @@
                   <FontAwesomeIconView glyphName="GRADUATION_CAP" layoutX="51.0" layoutY="61.0" size="35" />
                </children>
             </Pane>
-            <Pane layoutX="169.0" layoutY="186.0" prefHeight="113.0" prefWidth="146.0" style="-fx-background-color: E8E8E8;">
+            <Pane fx:id="pneGestionAlumnos" layoutX="169.0" layoutY="186.0" onMouseClicked="#irGestionAlumnos" prefHeight="113.0" prefWidth="146.0" style="-fx-background-color: E8E8E8;">
                <children>
                   <Label layoutX="47.0" layoutY="73.0" text="Alumnos" />
                   <FontAwesomeIconView glyphName="GROUP" layoutX="53.0" layoutY="59.0" size="40" text="" wrappingWidth="44.0" />
                </children>
             </Pane>
-            <Pane layoutX="348.0" layoutY="186.0" prefHeight="113.0" prefWidth="146.0" style="-fx-background-color: E8E8E8;">
+            <Pane fx:id="pneCalendario" layoutX="348.0" layoutY="186.0" prefHeight="113.0" prefWidth="146.0" style="-fx-background-color: E8E8E8;">
                <children>
                   <Label layoutX="41.0" layoutY="74.0" text="Calendario" />
                   <FontAwesomeIconView glyphName="TABLE" layoutX="55.0" layoutY="62.0" size="40" text="" wrappingWidth="44.0" />

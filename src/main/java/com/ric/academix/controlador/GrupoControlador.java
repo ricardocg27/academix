@@ -61,7 +61,7 @@ public class GrupoControlador {
 		Grupo grupo = new Grupo();
 
 		grupo.setCurso(curso.trim().toLowerCase());
-		grupo.setLetra(letra);
+//		grupo.setLetra(letra);
 		//grupo.setProfesor(profesor);
 
 		return grupo;

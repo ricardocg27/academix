@@ -1,11 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ric.academix.controlador.PanelAdministraciónProfesorController">
-    
-</AnchorPane>
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#moverVentana" onMousePressed="#registrarPosicion" prefHeight="790.0" prefWidth="1001.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ric.academix.controlador.PanelAdministracionProfesorController">
+   <top>
+      <Pane prefHeight="113.0" prefWidth="882.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="102.0" fitWidth="101.0" layoutX="873.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/ACADEMIX.png" />
+               </image>
+            </ImageView>
+            <FontAwesomeIconView fx:id="icnExit" fill="WHITE" glyphName="CLOSE" layoutX="974.0" layoutY="25.0" onMouseClicked="#exit" size="16" />
+            <Label fx:id="lblTitulo" layoutX="164.0" layoutY="68.0" opacity="0.6" prefHeight="31.0" prefWidth="551.0" text="PROFESOR:" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </top>
+   <left>
+      <Pane prefHeight="555.0" prefWidth="162.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="154.0" fitWidth="157.0" layoutX="4.0" layoutY="477.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/ACADEMIX.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="lblPanelLateral" editable="false" focusTraversable="false" layoutX="-4.0" layoutY="326.0" prefHeight="25.0" prefWidth="166.0" text="Nombre usuario" />
+         </children>
+      </Pane>
+   </left>
+   <center>
+      <Pane prefHeight="587.0" prefWidth="839.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="47.0" layoutY="36.0" prefHeight="17.0" prefWidth="99.0" text="Nueva actividad">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cmbCategoriaActividad" layoutX="228.0" layoutY="74.0" prefHeight="25.0" prefWidth="131.0" promptText="Categoría" />
+            <TextField fx:id="txtPorcentaje" layoutX="695.0" layoutY="74.0" prefHeight="25.0" prefWidth="101.0" promptText="Porcentaje" />
+            <TextField fx:id="txtNombreActividad" layoutX="58.0" layoutY="74.0" promptText="Nombre" />
+            <ComboBox fx:id="cmbAsignaturaCrear" layoutX="385.0" layoutY="74.0" prefHeight="25.0" prefWidth="131.0" promptText="Asignatura" />
+            <Pane layoutX="53.0" layoutY="303.0">
+               <children>
+                  <TableView fx:id="tblActividades" prefHeight="294.0" prefWidth="750.0">
+                    <columns>
+                      <TableColumn fx:id="clmActividad" prefWidth="128.0" text="Actividad" />
+                        <TableColumn fx:id="clmCategoria" prefWidth="137.0" text="Categoría" />
+                        <TableColumn fx:id="clmPorcentaje" prefWidth="128.0" text="Porcentaje" />
+                        <TableColumn fx:id="clmGrupo" prefWidth="138.0" text="Grupo" />
+                        <TableColumn fx:id="clmAsignatura" prefWidth="218.0" text="Asignatura" />
+                    </columns>
+                  </TableView>
+                  <TableView fx:id="tblExamenes" prefHeight="297.0" prefWidth="754.0">
+                    <columns>
+                      <TableColumn fx:id="clmActividadExamen" prefWidth="142.0" text="Actividad" />
+                      <TableColumn fx:id="clmCategoriaExamen" prefWidth="178.0" text="Categoría" />
+                        <TableColumn fx:id="clmPorcentajeExamen" prefWidth="106.0" text="Porcentaje" />
+                        <TableColumn fx:id="clmGrupoExamen" prefWidth="158.0" text="Grupo" />
+                        <TableColumn fx:id="clmAsignaturaExamen" prefWidth="169.0" text="Asignatura" />
+                    </columns>
+                  </TableView>
+               </children>
+            </Pane>
+            <Separator layoutX="48.0" layoutY="187.0" prefHeight="8.0" prefWidth="746.0" />
+            <ComboBox fx:id="cmbGrupoBuscar" layoutX="55.0" layoutY="221.0" prefHeight="25.0" prefWidth="105.0" promptText="Grupo" />
+            <Button fx:id="btnBuscar" layoutX="531.0" layoutY="221.0" mnemonicParsing="false" onAction="#buscarActividad" prefHeight="25.0" prefWidth="80.0" text="Buscar" />
+            <ComboBox fx:id="cmbAsignaturaBuscar" layoutX="175.0" layoutY="221.0" prefWidth="150.0" promptText="Asignatura" />
+            <Button fx:id="btnEliminar" layoutX="709.0" layoutY="625.0" mnemonicParsing="false" onAction="#eliminarActividad" prefHeight="25.0" prefWidth="94.0" text="Eliminar" />
+            <Button fx:id="btnGestionDatosAcademicos" layoutX="53.0" layoutY="622.0" mnemonicParsing="false" onAction="#irDatosAcademicos" prefHeight="25.0" prefWidth="167.0" text="Gestión datos académicos" />
+            <ComboBox fx:id="cmbGrupoCrear" layoutX="544.0" layoutY="74.0" prefHeight="25.0" prefWidth="131.0" promptText="Grupo" />
+            <Button fx:id="btnAceptar" layoutX="702.0" layoutY="130.0" mnemonicParsing="false" onAction="#crearActividad" prefHeight="25.0" prefWidth="94.0" text="Aceptar" />
+            <ComboBox fx:id="cmbTareaOExamen" layoutX="348.0" layoutY="221.0" prefHeight="25.0" prefWidth="156.0" promptText="Categoría" />
+            <Label fx:id="lblDescripcion" layoutX="728.0" layoutY="259.0" opacity="0.66" prefHeight="25.0" prefWidth="86.0" text="TAREAS">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

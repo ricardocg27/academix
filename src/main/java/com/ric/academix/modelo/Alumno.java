@@ -16,9 +16,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.NamedQueries;
-import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
+import java.util.Collection;
+import jakarta.persistence.OneToMany;
 
 /**
  *
@@ -52,17 +52,37 @@ public class Alumno implements Serializable {
     private TipoUsuario tipoUsuario;
     @Column(name = "tipo_usuario")
     private int codigoTipoUsuario;
+    @Column(name = "fecha_nacimiento")
+    private String fechaNacimiento;
+    @Column(name = "telefono")
+    private String telefono;
+    @Column(name = "direccion")
+    private String direccion;
 
     public Alumno() {
     }
 
+    public Alumno(Integer id, String nombre, String primerApellido, String segundoApellido, String email, Grupo grupoId) {
+        this.id = id;
+        this.nombre = nombre;
+        this.primerApellido = primerApellido;
+        this.segundoApellido = segundoApellido;
+        this.email = email;
+        this.grupoId = grupoId;
+    }
+
     public Alumno(String nombre, String primerApellido, String segundoApellido, String contrasegna, String email, int codigoTipoUsuario) {
+
         this.nombre = nombre;
         this.primerApellido = primerApellido;
         this.segundoApellido = segundoApellido;
         this.contrasegna = contrasegna;
         this.email = email;
         this.codigoTipoUsuario = codigoTipoUsuario;
+    }
+
+    public String getNombreYApellidos() {
+        return this.nombre + " " + this.primerApellido + " " + this.segundoApellido;
     }
 
     public Alumno(Integer id) {
@@ -139,6 +159,30 @@ public class Alumno implements Serializable {
 
     public void setCodigoTipoUsuario(int codigoTipoUsuario) {
         this.codigoTipoUsuario = codigoTipoUsuario;
+    }
+
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     @Override

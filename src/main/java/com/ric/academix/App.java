@@ -20,7 +20,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("/fxml/LoginVista"), 640, 480);
+        scene = new Scene(loadFXML("/fxml/LoginVista"));
         stage.initStyle(StageStyle.DECORATED.UNDECORATED);
         scene.getStylesheets().add(getClass().getResource("/css/login.css").toExternalForm());
         stage.setScene(scene);

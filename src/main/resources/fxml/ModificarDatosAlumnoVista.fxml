@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<SplitPane fx:id="splitPane" dividerPositions="0.2947103274559194" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#moverVentana" 
+           onMousePressed="#registrarPosicion" orientation="VERTICAL" prefHeight="399.0" prefWidth="417.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" 
+           fx:controller="com.ric.academix.controlador.ModificarDatosAlumnoController">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="99.0" prefWidth="415.0" style="-fx-background-color: #0598ff;">
+         <children>
+            <ImageView fitHeight="103.0" fitWidth="125.0" layoutX="298.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/ACADEMIX_2.png" />
+               </image>
+            </ImageView>
+            <FontAwesomeIconView fx:id="icnExit" fill="WHITE" glyphName="CLOSE" layoutX="388.0" layoutY="24.0" onMouseClicked="#exit" size="16" />
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="260.0" prefWidth="415.0">
+         <children>
+            <TextField fx:id="txtNombre" layoutX="38.0" layoutY="44.0" promptText="Nombre" />
+            <TextField fx:id="txtPrimerApellido" layoutX="232.0" layoutY="44.0" promptText="Primer apellido" />
+            <TextField fx:id="txtSegundoApellido" layoutX="38.0" layoutY="104.0" promptText="Segundo apellido" />
+            <TextField fx:id="txtCorreo" layoutX="232.0" layoutY="104.0" promptText="Correo electrónico" />
+            <ComboBox fx:id="cmbGrupo" layoutX="232.0" layoutY="155.0" prefWidth="150.0" promptText="Seleccionar grupo" />
+            <Button fx:id="btnAceptar" layoutX="187.0" layoutY="211.0" mnemonicParsing="false" onAction="#aceptarCambios" prefHeight="25.0" prefWidth="82.0" text="Aceptar" />
+            <Button fx:id="btnCancelar" layoutX="299.0" layoutY="211.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="25.0" prefWidth="82.0" text="Cancelar" />
+         </children></AnchorPane>
+  </items>
+</SplitPane>

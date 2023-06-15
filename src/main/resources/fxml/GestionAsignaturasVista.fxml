@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#moverVentana" onMousePressed="#registrarPosicion" prefHeight="666.0" prefWidth="902.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ric.academix.controlador.GestionAsignaturasController">
+   <left>
+      <Pane prefHeight="510.0" prefWidth="156.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="145.0" fitWidth="157.0" layoutX="6.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/ACADEMIX.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="lblPanelLateral" editable="false" focusTraversable="false" layoutX="-3.0" layoutY="263.0" prefHeight="25.0" prefWidth="159.0" text="Nombre usuario" />
+         </children>
+      </Pane>
+   </left>
+   <top>
+      <Pane prefHeight="116.0" prefWidth="727.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="109.0" fitWidth="111.0" layoutX="790.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/ACADEMIX.png" />
+               </image>
+            </ImageView>
+            <FontAwesomeIconView fx:id="btnExit" fill="WHITE" glyphName="CLOSE" layoutX="880.0" layoutY="19.0" onMouseClicked="#exit" size="16" />
+            <Label fx:id="lblTitulo" layoutX="165.0" layoutY="71.0" opacity="0.6" prefHeight="31.0" prefWidth="483.0" text="ADMINISTRADOR:" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </top>
+   <center>
+      <Pane fx:id="modificarAsignatura" prefHeight="473.0" prefWidth="592.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="tblAsignaturas" layoutX="32.0" layoutY="70.0" prefHeight="399.0" prefWidth="682.0">
+              <columns>
+                <TableColumn fx:id="clmAsignatura" prefWidth="279.0" text="Asignatura" />
+                  <TableColumn fx:id="clmProfesor" prefWidth="267.0" text="Profesor" />
+                  <TableColumn fx:id="clmAgno" prefWidth="135.0" text="Año" />
+              </columns>
+            </TableView>
+            <Button fx:id="btnModificar" layoutX="457.0" layoutY="488.0" mnemonicParsing="false" onAction="#modificarAsignatura" prefHeight="30.0" prefWidth="113.0" text="MODIFICAR" />
+            <Button fx:id="btnEliminar" layoutX="599.0" layoutY="488.0" mnemonicParsing="false" onAction="#eliminarAsignatura" prefHeight="30.0" prefWidth="113.0" text="ELIMINAR" />
+            <Label layoutX="432.0" layoutY="21.0" opacity="0.49" text="PANEL GESTIÓN ASIGNATURAS">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children></Pane>
+   </center>
+</BorderPane>

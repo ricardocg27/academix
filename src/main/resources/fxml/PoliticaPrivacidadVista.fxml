@@ -7,16 +7,15 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-
-<Pane id="pnePoliticaPrivacidad" fx:id="pnePoliticaPrivacidad" prefHeight="730.0" prefWidth="667.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ric.academix.controlador.PoliticaPrivacidadController">
+<Pane id="pnePoliticaPrivacidad" fx:id="pnePoliticaPrivacidad" onMouseDragged="#moverVentana" onMousePressed="#registrarPosicion" prefHeight="730.0" prefWidth="667.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ric.academix.controlador.PoliticaPrivacidadController">
    <children>
-      <ImageView fitHeight="42.0" fitWidth="56.0" layoutX="56.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="53.0" fitWidth="69.0" layoutX="37.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../imagenes/ACADEMIX_2.png" />
          </image>
       </ImageView>
-      <FontAwesomeIconView id="icnExit" fx:id="icnExit" fill="#0598ff" glyphName="CLOSE" layoutX="612.0" layoutY="37.0" onMouseClicked="#exit" size="20" />
-      <ScrollPane layoutX="56.0" layoutY="83.0" prefHeight="610.0" prefWidth="572.0">
+      <FontAwesomeIconView id="icnExit" fx:id="icnExit" fill="#0598ff" glyphName="CLOSE" layoutX="640.0" layoutY="22.0" onMouseClicked="#exit" size="16" />
+      <ScrollPane layoutX="35.0" layoutY="83.0" prefHeight="619.0" prefWidth="616.0">
          <content>
             <TextArea editable="false" prefHeight="636.0" prefWidth="643.0" text="Política de privacidad de Academix&#10;&#10;En Academix, la privacidad y la protección de los datos personales de nuestros usuarios es una de nuestras principales preocupaciones. En este sentido, a continuación, detallamos nuestra política de privacidad para que usted tenga conocimiento de cómo recopilamos, utilizamos, compartimos y protegemos su información personal.&#10;&#10;1. Información personal que recopilamos.&#10;Recopilamos información personal de diferentes maneras, como cuando se registra en nuestra plataforma o cuando nos proporciona información adicional a través de nuestra plataforma. La información personal que recopilamos puede incluir su nombre, dirección de correo electrónico, dirección postal, número de teléfono y otra información relevante para proporcionar nuestros servicios.&#10;&#10;2. Uso de la información personal.&#10;Utilizamos su información personal para proporcionar y mejorar nuestros servicios, para administrar su cuenta, para responder a sus consultas y para enviarle información relevante sobre nuestros servicios. También podemos utilizar su información personal para fines comerciales y publicitarios, como para enviarle información sobre productos y servicios relacionados con los que pueda estar interesado.&#10;&#10;3. Compartir información personal.&#10;No vendemos, alquilamos ni compartimos su información personal con terceros, excepto en los casos en que sea necesario para proporcionar nuestros servicios o en cumplimiento de una obligación legal.&#10;&#10;4. Protección de la información personal.&#10;Tomamos medidas razonables y apropiadas para proteger su información personal contra el acceso no autorizado, la alteración, la divulgación o la destrucción. Esto incluye el uso de tecnologías de seguridad y prácticas de privacidad adecuadas para proteger su información personal.&#10;&#10;5. Política de cookies.&#10;Academix utiliza cookies para mejorar su experiencia de usuario y personalizar su experiencia en nuestra plataforma. Las cookies también nos ayudan a comprender cómo utiliza nuestra plataforma y cómo podemos mejorarla.&#10;&#10;6. Cambios en la política de privacidad.&#10;Podemos actualizar nuestra política de privacidad en cualquier momento y sin previo aviso. Le recomendamos que revise regularmente esta política para mantenerse informado sobre cómo protegemos su información personal.&#10;&#10;Si tiene alguna pregunta o inquietud sobre nuestra política de privacidad, no dude en ponerse en contacto con nosotros." wrapText="true" />
          </content>

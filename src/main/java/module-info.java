@@ -11,6 +11,9 @@ module com.ric.academix {
     requires charm.down.core;
     requires charm.down.plugin.display;
     requires org.controlsfx.controls;
+    requires org.apache.commons.io;
+    requires org.apache.poi.poi;
+    requires org.apache.poi.ooxml;
     
     
 

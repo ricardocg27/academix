@@ -18,10 +18,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.NamedQueries;
-import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.ManyToMany;
 
 /**
  *
@@ -42,12 +41,17 @@ public class Grupo implements Serializable {
     private String curso;
     @Basic(optional = false)
     @Column(name = "letra")
-    private int letra;
+    private String letra;
     @JoinColumn(name = "tutor_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Profesor tutorId;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "grupoId")
     private Collection<Alumno> alumnoCollection;
+    @OneToMany(mappedBy = "grupoId")
+    private Collection<Examen> examenCollection;
+    @OneToMany(mappedBy = "grupoId")
+    private Collection<TareaEvaluable> tareaEvaluableCollection;
+
 
     public Grupo() {
     }
@@ -56,10 +60,16 @@ public class Grupo implements Serializable {
         this.id = id;
     }
 
-    public Grupo(Integer id, String curso, int letra) {
+    public Grupo(Integer id, String curso, String letra) {
         this.id = id;
         this.curso = curso;
         this.letra = letra;
+    }
+
+    public Grupo(String curso, String letra, Profesor tutorId) {
+        this.curso = curso;
+        this.letra = letra;
+        this.tutorId = tutorId;
     }
 
     public Integer getId() {
@@ -78,11 +88,11 @@ public class Grupo implements Serializable {
         this.curso = curso;
     }
 
-    public int getLetra() {
+    public String getLetra() {
         return letra;
     }
 
-    public void setLetra(int letra) {
+    public void setLetra(String letra) {
         this.letra = letra;
     }
 
@@ -101,6 +111,26 @@ public class Grupo implements Serializable {
     public void setAlumnoCollection(Collection<Alumno> alumnoCollection) {
         this.alumnoCollection = alumnoCollection;
     }
+
+    public Collection<Examen> getExamenCollection() {
+        return examenCollection;
+    }
+
+    public void setExamenCollection(Collection<Examen> examenCollection) {
+        this.examenCollection = examenCollection;
+    }
+
+    public Collection<TareaEvaluable> getTareaEvaluableCollection() {
+        return tareaEvaluableCollection;
+    }
+
+    public void setTareaEvaluableCollection(Collection<TareaEvaluable> tareaEvaluableCollection) {
+        this.tareaEvaluableCollection = tareaEvaluableCollection;
+    }
+
+ 
+    
+    
 
     @Override
     public int hashCode() {
@@ -124,7 +154,12 @@ public class Grupo implements Serializable {
 
     @Override
     public String toString() {
-        return "com.ric.academix.modelo.Grupo_1[ id=" + id + " ]";
+        return "Grupo{" + "id=" + id + ", curso=" + curso + ", letra=" + letra + ", tutorId=" + tutorId + '}';
     }
-    
+
+    public String dameGrupo() {
+
+        return this.curso + " " + this.letra;
+    }
+
 }

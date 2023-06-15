@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package com.ric.academix.controlador;
 
+import com.ric.academix.modelo.Grupo;
+import com.ric.academix.modelo.Profesor;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
@@ -13,7 +16,7 @@ import javafx.fxml.Initializable;
  *
  * @author ricar
  */
-public class PanelAdministraciónProfesorController implements Initializable {
+public class ModificarDatosGrupoController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -22,5 +25,9 @@ public class PanelAdministraciónProfesorController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    void initAttributes(Grupo grupo) {
+       
+    }
     
 }

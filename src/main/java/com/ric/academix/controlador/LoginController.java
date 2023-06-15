@@ -220,9 +220,10 @@ public class LoginController implements Initializable {
             irPanelGeneralAdministrador((Administrador) object);
         } else if (object instanceof Profesor) {
             irPanelGeneralProfesor((Profesor) object);
-        } else {
-            irPanelGeneralAlumno((Alumno) object);
-        }
+        } 
+//        else {
+//            irPanelGeneralAlumno((Alumno) object);
+//        }
     }
 
     private void irPanelGeneralAdministrador(Administrador administrador) {
@@ -233,14 +234,15 @@ public class LoginController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/PanelGeneralAdministradorVista.fxml"));
             Parent root = loader.load();
 
-            PanelGeneralAdministradorController controlador = loader.getController();  
+            PanelGeneralAdministradorController controlador = loader.getController(); 
+            
             controlador.setUsuario(administrador);
             
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.initStyle(StageStyle.DECORATED.UNDECORATED);
             stage.setScene(scene);
-            stage.showAndWait();
+            stage.show();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -262,7 +264,7 @@ public class LoginController implements Initializable {
             Stage stage = new Stage();
             stage.initStyle(StageStyle.DECORATED.UNDECORATED);
             stage.setScene(scene);
-            stage.showAndWait();
+            stage.show();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -284,16 +286,12 @@ public class LoginController implements Initializable {
             Stage stage = new Stage();
             stage.initStyle(StageStyle.DECORATED.UNDECORATED);
             stage.setScene(scene);
-            stage.showAndWait();
+            stage.show();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    @FXML
-    private void recuperarContraseña(ActionEvent event) {
-        
-    }
 
 }
